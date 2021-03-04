@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Container, CssBaseline } from '@material-ui/core';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import './utils/i18n';
 
 ReactDOM.render(
   <StrictMode>

@@ -1,0 +1,8 @@
+{
+	"audit_form" : {
+		"header": "Audit form",
+		"page_url" : "Page url",
+		"question" : "Question",
+		"submit" : "Submit answers"
+	}
+}
