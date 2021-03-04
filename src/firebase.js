@@ -2,6 +2,7 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
 import 'firebase/analytics';
+
 firebase.initializeApp({
   apiKey: 'AIzaSyCjDCDnCi7PFNbgETCkXW7Xne11RaGJWg4',
   authDomain: 'lpbd-team-3.firebaseapp.com',
@@ -12,4 +13,6 @@ firebase.initializeApp({
   measurementId: 'G-Y1L8RH49WR',
 });
 
-export default firebase;
+export const analytics = firebase.analytics();
+export const auth = firebase.auth();
+export const firestore = firebase.firestore();
