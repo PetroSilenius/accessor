@@ -4,5 +4,12 @@
 		"page_url" : "Sivuston url",
 		"question" : "Kysymys",
 		"submit" : "Lähetä vastaukset"
+	},
+	"user_info" : {
+		"header" : "Käyttäjätiedot",
+		"peripherals" : "Oheislaitteet",
+		"description" : "Kuvaus",
+		"company" : "Yritys",
+		"disabilities" : "Invaliditeetit"
 	}
 }
