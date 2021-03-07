@@ -1,0 +1,8 @@
+{
+	"audit_form" : {
+		"header" : "Auditointi kaavake",
+		"page_url" : "Sivuston url",
+		"question" : "Kysymys",
+		"submit" : "Lähetä vastaukset"
+	}
+}
