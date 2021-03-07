@@ -2,7 +2,7 @@ import { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 import { CssBaseline } from '@material-ui/core';
 import AuditForm from './components/AuditForm';
-import AuditReport from './components/AuditReport';
+import AuditReport from './components/AuditReport/index';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './utils/i18n';
