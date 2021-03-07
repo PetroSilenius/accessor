@@ -1,0 +1,15 @@
+{
+	"audit_form" : {
+		"header": "Audit form",
+		"page_url" : "Page url",
+		"question" : "Question",
+		"submit" : "Submit answers"
+	},
+	"user_info" : {
+		"header": "User information",
+		"peripherals" : "Peripherals",
+		"description" : "Description",
+		"company" : "Company",
+		"disabilities" : "Disabilities"
+	}
+}
