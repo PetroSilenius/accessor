@@ -5,6 +5,7 @@ import AuditForm from './components/AuditForm';
 import AuditReport from './components/AuditReport';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import './utils/i18n';
 
 ReactDOM.render(
   <StrictMode>
