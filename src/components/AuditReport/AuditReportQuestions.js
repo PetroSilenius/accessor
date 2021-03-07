@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
-import { firestore } from '../firebase';
+import { firestore } from '../../firebase';
 import { useDocumentData } from 'react-firebase-hooks/firestore';
-import i18n from '../utils/i18n';
+import i18n from '../../utils/i18n';
 import { Card, CardContent, CardActions, Grid, Link, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -22,17 +22,16 @@ function AuditReportQuestions({ auditId, pageId, questions }) {
   const auditPageRef = firestore.doc(`audits/${auditId}/pages/${pageId}`);
   const [page] = useDocumentData(auditPageRef);
 
-  console.log(questions);
   console.log(page);
 
   return (
     <Grid container spacing={2} justify="center" className={classes.container}>
       {questions?.map((question, key) => (
-        <Grid item xs="10">
+        <Grid item xs={10} key={key}>
           <Card variant="outlined" className={classes.card}>
             <CardContent>
               <Typography variant="h5">{question[i18n.language]}</Typography>
-              <Typography>{page.questions[key]}</Typography>
+              <Typography>{page?.questions[key]}</Typography>
             </CardContent>
             <CardActions>
               <Link
