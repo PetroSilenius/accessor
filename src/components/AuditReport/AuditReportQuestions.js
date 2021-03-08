@@ -1,9 +1,9 @@
-import { useEffect } from 'react';
 import { firestore } from '../../firebase';
 import { useDocumentData } from 'react-firebase-hooks/firestore';
 import i18n from '../../utils/i18n';
-import { Card, CardContent, CardActions, Grid, Link, Typography } from '@material-ui/core';
+import { Card, CardContent, Grid, Link } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import { useTranslation } from 'react-i18next';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -11,35 +11,40 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: '20px',
   },
   card: {
-    backgroundColor: theme.palette.grey[800],
-    color: theme.palette.grey[200],
+    backgroundColor: theme.palette.secondary.lighter,
   },
 }));
 
 function AuditReportQuestions({ auditId, pageId, questions }) {
   const classes = useStyles();
-  useEffect(() => {}, []);
+  const { t } = useTranslation();
   const auditPageRef = firestore.doc(`audits/${auditId}/pages/${pageId}`);
   const [page] = useDocumentData(auditPageRef);
 
   return (
     <Grid container spacing={2} justify="center" className={classes.container}>
+      <Grid item xs={10}>
+        <Card variant="outlined" className={classes.card}>
+          <CardContent>
+            <h2>{t('audit_report.subheader')}</h2>
+            <p>{t('audit_report.description')}</p>
+          </CardContent>
+        </Card>
+      </Grid>
       {questions?.map((question, key) => (
         <Grid item xs={10} key={key}>
           <Card variant="outlined" className={classes.card}>
             <CardContent>
-              <Typography variant="h5">{question[i18n.language]}</Typography>
-              <Typography>{page?.questions[question.id]}</Typography>
-            </CardContent>
-            <CardActions>
+              <h3>{question[i18n.language]}</h3>
+              <p>{page?.questions[question.id]}</p>
               <Link
                 href={`https://www.w3.org/TR/WCAG21/#${question.wcag}`}
                 target="_blank"
                 rel="noreferrer"
-                color="inherit">
-                Need help with this?
+                color="error">
+                <b>Need help with this?</b>
               </Link>
-            </CardActions>
+            </CardContent>
           </Card>
         </Grid>
       ))}
