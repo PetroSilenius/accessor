@@ -29,7 +29,7 @@ function AuditReportQuestions({ auditId, pageId, questions }) {
           <Card variant="outlined" className={classes.card}>
             <CardContent>
               <Typography variant="h5">{question[i18n.language]}</Typography>
-              <Typography>{page?.questions[key]}</Typography>
+              <Typography>{page?.questions[question.id]}</Typography>
             </CardContent>
             <CardActions>
               <Link
