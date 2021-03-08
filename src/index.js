@@ -1,16 +1,25 @@
 import { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
-import { Container, CssBaseline } from '@material-ui/core';
-import App from './App';
+import { CssBaseline } from '@material-ui/core';
+import AuditForm from './components/AuditForm';
+import AuditReport from './components/AuditReport/index';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './utils/i18n';
 
 ReactDOM.render(
   <StrictMode>
-    <CssBaseline />
-    <Container maxWidth="md">
-      <App />
-    </Container>
+    <Router>
+      <CssBaseline />
+      <Switch>
+        <Route path="/report/:auditId">
+          <AuditReport />
+        </Route>
+        <Route path="/">
+          <AuditForm />
+        </Route>
+      </Switch>
+    </Router>
   </StrictMode>,
   document.getElementById('root')
 );
