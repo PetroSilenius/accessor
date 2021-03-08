@@ -22,8 +22,6 @@ function AuditReportQuestions({ auditId, pageId, questions }) {
   const auditPageRef = firestore.doc(`audits/${auditId}/pages/${pageId}`);
   const [page] = useDocumentData(auditPageRef);
 
-  console.log(page);
-
   return (
     <Grid container spacing={2} justify="center" className={classes.container}>
       {questions?.map((question, key) => (
