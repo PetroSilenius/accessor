@@ -3,7 +3,7 @@ import { Card, CardContent, CardActions, Grid, Link, Typography } from '@materia
 function AuditorInformation({ user }) {
   return (
     <Grid container justify="center">
-      <Grid item xs="10">
+      <Grid item xs={10}>
         <Card variant="outlined">
           <CardContent>
             <Typography>{user?.company}</Typography>

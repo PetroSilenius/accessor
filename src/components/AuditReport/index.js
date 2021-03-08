@@ -9,47 +9,34 @@ import AuditorInformation from './AuditorInformation';
 function AuditReport() {
   const { auditId } = useParams();
   const auditRef = firestore.doc(`audits/${auditId}`);
-  const [pageId, setPageId] = useState('Bl97iRBILC0gOYmUgtbc');
+  const [audit] = useDocumentData(auditRef, { idField: 'id' });
+  const pagesRef = auditRef.collection(`pages`);
+  const pages = useCollectionData(pagesRef, { idField: 'id' });
   const questionsRef = firestore.collection('questions');
   const [questions] = useCollectionData(questionsRef);
 
-  /*
-  Get pages ids
+  const [pageId, setPageId] = useState();
 
   useEffect(() => {
-    const getPages = async () => {
-      let pages = [];
-      await firestore
-        .collection('audits')
-        .doc(auditId)
-        .collection('pages')
-        .get()
-        .then((snapshot) => snapshot.forEach((doc) => pages.push(doc.id)));
-      return pages;
-    };
-    setPageId(getPages().json());
-  }, []);
-  */
+    setPageId(pages?.[0]?.[0].id);
+  }, [pages]);
 
   const handleChange = (event, newValue) => {
     setPageId(newValue);
   };
 
-  const [audit] = useDocumentData(auditRef, { idField: 'id' });
-  console.log(audit);
-
   return (
     <>
       <Paper>
         <Tabs
-          value={pageId}
+          value={pageId ?? pages?.[0]?.[0].id}
           onChange={handleChange}
           indicatorColor="primary"
           textColor="primary"
           centered>
-          <Tab label="Item One" value={'Bl97iRBILC0gOYmUgtbc'} />
-          <Tab label="Item Two" />
-          <Tab label="Item Three" />
+          {pages[0]?.map((page) => (
+            <Tab label={page.page_url} value={page.id} key={page.id} />
+          ))}
         </Tabs>
       </Paper>
       <Grid container>
@@ -64,7 +51,7 @@ function AuditReport() {
         </Grid>
       </Grid>
 
-      <AuditorInformation user={audit.user} />
+      <AuditorInformation user={audit?.user} />
 
       <AuditReportQuestions auditId={auditId} pageId={pageId} questions={questions} />
     </>
