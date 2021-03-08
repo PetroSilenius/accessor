@@ -13,6 +13,7 @@ import {
   TextField,
 } from '@material-ui/core';
 import { firestore } from '../firebase';
+import firebase from 'firebase/app';
 import { useTranslation } from 'react-i18next';
 import i18n from '../utils/i18n';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
@@ -166,7 +167,7 @@ function Questions(props) {
 function AuditForm() {
   const { t } = useTranslation();
   const classes = useStyles();
-  const auditsRef = firestore.collection('audits');
+  const auditsRef = firestore.collection('audits').doc();
   const questionsRef = firestore.collection('questions');
   const [questions] = useCollectionData(questionsRef.orderBy('id').limit(25), { idField: 'id' });
   const [checkedPeripherals, setCheckedPeripherals] = useState({});
@@ -192,36 +193,53 @@ function AuditForm() {
   };
 
   const submitForm = async (e) => {
-    var data = {
-      timestamp: firestore.FieldValue.serverTimestamp(),
+    let auditData = {
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       user: user,
     };
+    let auditPageData = {
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+    };
+    let auditPageQuestions = {};
+
     e.preventDefault();
     Object.keys(e.target.elements).map((key) => {
       if (e.target.elements[key].tagName === 'INPUT') {
         if (key === 'pageUrl') {
-          Object.assign(data, { [key]: e.target.elements[key].value });
+          Object.assign(auditPageData, { [key]: e.target.elements[key].value });
         } else if (key.length === 20) {
-          Object.assign(data, { [key]: e.target.elements[key].value });
+          Object.assign(auditPageQuestions, { [key]: e.target.elements[key].value });
         }
+        console.log(key, e.target.elements[key].value);
       }
     });
+    Object.assign(auditPageData, { questions: auditPageQuestions });
+    console.log(auditPageData);
     auditsRef
-      .add(data)
+      .set(auditData)
       .then(() => {
-        console.log(data, 'successfully written!');
+        console.log(auditData, 'successfully written!');
       })
       .catch((error) => {
         console.error('Error writing document: ', error);
       });
-    return;
+    auditsRef
+      .collection('pages')
+      .add(auditPageData)
+      .then(() => {
+        console.log(auditPageData, 'successfully written!');
+      })
+      .catch((error) => {
+        console.error('Error writing document: ', error);
+      });
+    return false;
   };
 
   return (
     <Container maxWidth="md">
       <Grid container spacing={3}>
         <UserInfo handleChange={handleChange} setUser={setUser} user={user} />
-        <form style={{ marginTop: 30 }} onSubmit={submitForm}>
+        <form name="page_audit" style={{ marginTop: 30 }} onSubmit={submitForm}>
           <Grid container spacing={3}>
             <Grid item xs={12}>
               <Paper className={classes.paper}>

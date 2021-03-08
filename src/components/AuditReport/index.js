@@ -12,14 +12,14 @@ function AuditReport() {
   const [audit] = useDocumentData(auditRef, { idField: 'id' });
   const pagesRef = auditRef.collection(`pages`);
   const pages = useCollectionData(pagesRef, { idField: 'id' });
-  const questionsRef = firestore.collection('questions');
-  const [questions] = useCollectionData(questionsRef);
+  const questionsRef = firestore.collection('questions').orderBy('id');
+  const [questions] = useCollectionData(questionsRef, { idField: 'id' });
 
   const [pageId, setPageId] = useState();
 
   useEffect(() => {
     setPageId(pages?.[0]?.[0].id);
-  }, [pages]);
+  }, []);
 
   const handleChange = (event, newValue) => {
     setPageId(newValue);
@@ -35,21 +35,10 @@ function AuditReport() {
           textColor="primary"
           centered>
           {pages[0]?.map((page) => (
-            <Tab label={page.page_url} value={page.id} key={page.id} />
+            <Tab label={page.pageUrl} value={page.id} key={page.id} />
           ))}
         </Tabs>
       </Paper>
-      <Grid container>
-        <Grid item xs>
-          {audit?.id}
-        </Grid>
-        <Grid item xs>
-          {audit?.status}
-        </Grid>
-        <Grid item xs>
-          {audit?.language}
-        </Grid>
-      </Grid>
 
       <AuditorInformation user={audit?.user} />
 
