@@ -19,11 +19,21 @@ import i18n from '../utils/i18n';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 const useStyles = makeStyles((theme) => ({
+  container: {
+    backgroundColor: theme.palette.secondary.main,
+    backgroundImage: theme.backgroundImage,
+    backgroundAttachment: 'fixed',
+    backgroundSize: 'cover',
+  },
   paper: {
     padding: 20,
+    backgroundColor: theme.palette.secondary.lighter,
   },
   user_info: {
     padding: 5,
+  },
+  submitButton: {
+    padding: 20,
   },
 }));
 /**
@@ -60,6 +70,7 @@ function UserInfo(props) {
   return (
     <Grid container>
       <Paper className={classes.paper} style={{ width: '100%' }}>
+        <h1>{t('audit_form.header')}</h1>
         <h2>{t('user_info.header')}</h2>
         <Grid item xs={12} className={classes.user_info}>
           <Button
@@ -67,7 +78,7 @@ function UserInfo(props) {
             onClick={() => {
               i18n.changeLanguage(i18n.language === 'fi' ? 'en' : 'fi');
             }}>
-            {i18n.language === 'fi' ? 'In English' : 'Suomeksi'}
+            {t('user_info.change_lang')}
           </Button>
         </Grid>
         <Grid item xs={12} className={classes.user_info}>
@@ -138,12 +149,13 @@ function Questions(props) {
         arr.push(
           <Grid item xs={12} key={index}>
             <Paper className={classes.paper}>
-              <h2>{question[i18n.language]}</h2>
+              <h3>{question[i18n.language]}</h3>
               <TextField
                 id={`${question.id}`}
                 name={`${question.id}`}
                 label={`${t('audit_form.question')} ${index}`}
                 fullWidth
+                multiline
               />
             </Paper>
           </Grid>
@@ -236,33 +248,36 @@ function AuditForm() {
   };
 
   return (
-    <Container maxWidth="md">
-      <Grid container spacing={3}>
-        <UserInfo handleChange={handleChange} setUser={setUser} user={user} />
-        <form name="page_audit" style={{ marginTop: 30 }} onSubmit={submitForm}>
-          <Grid container spacing={3}>
-            <Grid item xs={12}>
-              <Paper className={classes.paper}>
-                <h2>{t('audit_form.header')}</h2>
-                <TextField
-                  required
-                  id="pageUrl"
-                  name="pageUrl"
-                  label={t('audit_form.page_url')}
-                  fullWidth
-                />
-              </Paper>
+    <div className={classes.container}>
+      <Container maxWidth="md">
+        <Grid container spacing={3}>
+          <UserInfo handleChange={handleChange} setUser={setUser} user={user} />
+          <form name="page_audit" style={{ marginTop: 30 }} onSubmit={submitForm}>
+            <Grid container spacing={1}>
+              <Grid item xs={12}>
+                <Paper className={classes.paper}>
+                  <h2>{t('audit_form.instructions_header')}</h2>
+                  <h3>{t('audit_form.page_url')}</h3>
+                  <TextField
+                    required
+                    id="pageUrl"
+                    name="pageUrl"
+                    label={t('audit_form.page_url')}
+                    fullWidth
+                  />
+                </Paper>
+              </Grid>
+              <Questions checkedPeripherals={checkedPeripherals} questions={questions} />
+              <Grid container justify="flex-end" className={classes.submitButton}>
+                <Button variant="contained" color="primary" size="large" type="submit">
+                  {t('audit_form.submit')}
+                </Button>
+              </Grid>
             </Grid>
-            <Questions checkedPeripherals={checkedPeripherals} questions={questions} />
-            <Grid item xs={12}>
-              <Button variant="outlined" type="submit">
-                {t('audit_form.submit')}
-              </Button>
-            </Grid>
-          </Grid>
-        </form>
-      </Grid>
-    </Container>
+          </form>
+        </Grid>
+      </Container>
+    </div>
   );
 }
 
