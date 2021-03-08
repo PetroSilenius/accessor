@@ -1,24 +1,27 @@
 import { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
-import { CssBaseline } from '@material-ui/core';
+import { CssBaseline, ThemeProvider } from '@material-ui/core';
 import AuditForm from './components/AuditForm';
 import AuditReport from './components/AuditReport/index';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './utils/i18n';
+import theme from './theme';
 
 ReactDOM.render(
   <StrictMode>
     <Router>
-      <CssBaseline />
-      <Switch>
-        <Route path="/report/:auditId">
-          <AuditReport />
-        </Route>
-        <Route path="/">
-          <AuditForm />
-        </Route>
-      </Switch>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Switch>
+          <Route path="/report/:auditId">
+            <AuditReport />
+          </Route>
+          <Route path="/">
+            <AuditForm />
+          </Route>
+        </Switch>
+      </ThemeProvider>
     </Router>
   </StrictMode>,
   document.getElementById('root')
