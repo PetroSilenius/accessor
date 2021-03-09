@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import {
   Button,
+  Card,
+  CardContent,
   Checkbox,
   Container,
   FormControl,
@@ -9,7 +11,6 @@ import {
   FormLabel,
   Grid,
   makeStyles,
-  Paper,
   TextField,
 } from '@material-ui/core';
 import { firestore } from '../firebase';
@@ -19,11 +20,20 @@ import i18n from '../utils/i18n';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 const useStyles = makeStyles((theme) => ({
-  paper: {
-    padding: 20,
+  container: {
+    backgroundColor: theme.palette.secondary.main,
+    backgroundImage: theme.backgroundImage,
+    backgroundAttachment: 'fixed',
+    backgroundSize: 'cover',
   },
-  user_info: {
-    padding: 5,
+  card: {
+    backgroundColor: theme.palette.secondary.lighter,
+  },
+  submitButton: {
+    margin: 20,
+    '& button': {
+      float: 'right',
+    },
   },
 }));
 /**
@@ -58,67 +68,64 @@ function UserInfo(props) {
   const [peripherals] = useCollectionData(peripheralsRef);
 
   return (
-    <Grid container>
-      <Paper className={classes.paper} style={{ width: '100%' }}>
-        <h2>{t('user_info.header')}</h2>
-        <Grid item xs={12} className={classes.user_info}>
-          <Button
-            variant="outlined"
-            onClick={() => {
-              i18n.changeLanguage(i18n.language === 'fi' ? 'en' : 'fi');
-            }}>
-            {i18n.language === 'fi' ? 'In English' : 'Suomeksi'}
-          </Button>
+    <Card className={classes.card}>
+      <CardContent>
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <h1>{t('audit_form.header')}</h1>
+            <h2>{t('user_info.header')}</h2>
+          </Grid>
+          <Grid item xs={12}>
+            <Button
+              variant="outlined"
+              onClick={() => {
+                i18n.changeLanguage(i18n.language === 'fi' ? 'en' : 'fi');
+              }}>
+              {t('user_info.change_lang')}
+            </Button>
+          </Grid>
+          <Grid item xs={12}>
+            <FormControl component="fieldset">
+              <FormLabel component="legend">{t('user_info.peripherals')}</FormLabel>
+              <FormGroup row>
+                {peripherals
+                  ? peripherals.map((p) => (
+                      <FormControlLabel
+                        key={p.id}
+                        control={
+                          <Checkbox
+                            name={p[i18n.language]}
+                            id={`${p.id}`}
+                            onChange={props.handleChange}
+                            color="primary"
+                          />
+                        }
+                        label={p[i18n.language]}
+                      />
+                    ))
+                  : undefined}
+              </FormGroup>
+            </FormControl>
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              label={t('user_info.description')}
+              fullWidth
+              onChange={(e) => {
+                props.setUser({ ...props.user, description: e.target.value });
+              }}></TextField>
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              label={t('user_info.company')}
+              fullWidth
+              onChange={(e) => {
+                props.setUser({ ...props.user, company: e.target.value });
+              }}></TextField>
+          </Grid>
         </Grid>
-        <Grid item xs={12} className={classes.user_info}>
-          <FormControl component="fieldset">
-            <FormLabel component="legend">{t('user_info.peripherals')}</FormLabel>
-            <FormGroup row>
-              {peripherals
-                ? peripherals.map((p) => (
-                    <FormControlLabel
-                      key={p.id}
-                      control={
-                        <Checkbox
-                          name={p[i18n.language]}
-                          id={`${p.id}`}
-                          onChange={props.handleChange}
-                          color="primary"
-                        />
-                      }
-                      label={p[i18n.language]}
-                    />
-                  ))
-                : undefined}
-            </FormGroup>
-          </FormControl>
-        </Grid>
-        <Grid item xs={12} className={classes.user_info}>
-          <TextField
-            label={t('user_info.disabilities')}
-            fullWidth
-            onChange={(e) => {
-              props.setUser({ ...props.user, disabilities: e.target.value });
-            }}></TextField>
-        </Grid>
-        <Grid item xs={12} className={classes.user_info}>
-          <TextField
-            label={t('user_info.description')}
-            fullWidth
-            onChange={(e) => {
-              props.setUser({ ...props.user, description: e.target.value });
-            }}></TextField>
-        </Grid>
-        <Grid item xs={12} className={classes.user_info}>
-          <TextField
-            label={t('user_info.company')}
-            fullWidth
-            onChange={(e) => {
-              props.setUser({ ...props.user, company: e.target.value });
-            }}></TextField>
-        </Grid>
-      </Paper>
-    </Grid>
+      </CardContent>
+    </Card>
   );
 }
 
@@ -136,16 +143,19 @@ function Questions(props) {
     questions.forEach((question) => {
       if (checkExclusions(question, checkedPeripherals)) {
         arr.push(
-          <Grid item xs={12} key={index}>
-            <Paper className={classes.paper}>
-              <h2>{question[i18n.language]}</h2>
-              <TextField
-                id={`${question.id}`}
-                name={`${question.id}`}
-                label={`${t('audit_form.question')} ${index}`}
-                fullWidth
-              />
-            </Paper>
+          <Grid item xs={10} key={index}>
+            <Card className={classes.card}>
+              <CardContent>
+                <h3>{question[i18n.language]}</h3>
+                <TextField
+                  id={`${question.id}`}
+                  name={`${question.id}`}
+                  label={`${t('audit_form.question')} ${index}`}
+                  fullWidth
+                  multiline
+                />
+              </CardContent>
+            </Card>
           </Grid>
         );
         index++;
@@ -172,7 +182,6 @@ function AuditForm() {
   const [questions] = useCollectionData(questionsRef.orderBy('id').limit(25), { idField: 'id' });
   const [checkedPeripherals, setCheckedPeripherals] = useState({});
   const [user, setUser] = useState({
-    disabilities: '',
     description: '',
     peripherals: [],
     company: '',
@@ -236,33 +245,38 @@ function AuditForm() {
   };
 
   return (
-    <Container maxWidth="md">
-      <Grid container spacing={3}>
-        <UserInfo handleChange={handleChange} setUser={setUser} user={user} />
-        <form name="page_audit" style={{ marginTop: 30 }} onSubmit={submitForm}>
-          <Grid container spacing={3}>
-            <Grid item xs={12}>
-              <Paper className={classes.paper}>
-                <h2>{t('audit_form.header')}</h2>
-                <TextField
-                  required
-                  id="pageUrl"
-                  name="pageUrl"
-                  label={t('audit_form.page_url')}
-                  fullWidth
-                />
-              </Paper>
+    <div className={classes.container}>
+      <Container maxWidth="md">
+        <form name="page_audit" onSubmit={submitForm}>
+          <Grid container spacing={1} justify="center">
+            <Grid item xs={10}>
+              <UserInfo handleChange={handleChange} setUser={setUser} user={user} />
+            </Grid>
+            <Grid item xs={10}>
+              <Card className={classes.card}>
+                <CardContent>
+                  <h2>{t('audit_form.instructions_header')}</h2>
+                  <h3>{t('audit_form.page_url')}</h3>
+                  <TextField
+                    required
+                    id="pageUrl"
+                    name="pageUrl"
+                    label={t('audit_form.page_url')}
+                    fullWidth
+                  />
+                </CardContent>
+              </Card>
             </Grid>
             <Questions checkedPeripherals={checkedPeripherals} questions={questions} />
-            <Grid item xs={12}>
-              <Button variant="outlined" type="submit">
+            <Grid item xs={10} className={classes.submitButton}>
+              <Button variant="contained" color="primary" size="large" type="submit">
                 {t('audit_form.submit')}
               </Button>
             </Grid>
           </Grid>
         </form>
-      </Grid>
-    </Container>
+      </Container>
+    </div>
   );
 }
 

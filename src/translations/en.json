@@ -1,15 +1,21 @@
 {
-	"audit_form" : {
+	"audit_form": {
 		"header": "Audit form",
-		"page_url" : "Page url",
-		"question" : "Question",
-		"submit" : "Submit answers"
+		"instructions_header": "Fill in the audit information below",
+		"page_url": "Page url",
+		"question": "Question",
+		"submit": "Submit answers"
 	},
-	"user_info" : {
+	"user_info": {
 		"header": "User information",
-		"peripherals" : "Peripherals",
-		"description" : "Description",
-		"company" : "Company",
-		"disabilities" : "Disabilities"
+		"change_lang": "Suomeksi",
+		"peripherals": "Peripherals",
+		"description": "Own description",
+		"company": "Company"
+	},
+	"audit_report": {
+		"header": "Audit Report",
+		"subheader": "Report details",
+		"description": "This describes better what the audit consist of"
 	}
 }
