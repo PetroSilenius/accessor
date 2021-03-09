@@ -25,7 +25,6 @@ function AuditorInformation({ user }) {
             <h2>{t('user_info.header')}</h2>
             <p>{user?.company}</p>
             <p>{user?.language}</p>
-            <p>{user?.disabilities}</p>
             <p>{user?.description}</p>
             <Link href="#" color="error">
               <b>Contact auditor</b>
