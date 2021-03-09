@@ -10,9 +10,8 @@
 		"header": "User information",
 		"change_lang": "Suomeksi",
 		"peripherals": "Peripherals",
-		"description": "Description",
-		"company": "Company",
-		"disabilities": "Disabilities"
+		"description": "Own description",
+		"company": "Company"
 	},
 	"audit_report": {
 		"header": "Audit Report",
