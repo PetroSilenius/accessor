@@ -213,17 +213,14 @@ function AuditForm() {
 
     e.preventDefault();
     Object.keys(e.target.elements).map((key) => {
-      if (e.target.elements[key].tagName === 'INPUT') {
-        if (key === 'pageUrl') {
-          Object.assign(auditPageData, { [key]: e.target.elements[key].value });
-        } else if (key.length === 20) {
-          Object.assign(auditPageQuestions, { [key]: e.target.elements[key].value });
-        }
-        console.log(key, e.target.elements[key].value);
+      if (e.target.elements[key].tagName === 'INPUT' && key === 'pageUrl') {
+        Object.assign(auditPageData, { [key]: e.target.elements[key].value });
+      } else if (e.target.elements[key].tagName === 'TEXTAREA' && key.length === 20) {
+        Object.assign(auditPageQuestions, { [key]: e.target.elements[key].value });
       }
     });
     Object.assign(auditPageData, { questions: auditPageQuestions });
-    console.log(auditPageData);
+    console.log(auditPageQuestions);
     auditsRef
       .set(auditData)
       .then(() => {
