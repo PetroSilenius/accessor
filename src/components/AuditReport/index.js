@@ -57,7 +57,11 @@ function AuditReport() {
 
       <AuditorInformation user={audit?.user} />
 
-      <AuditReportQuestions auditId={auditId} pageId={pageId} questions={questions} />
+      <AuditReportQuestions
+        auditId={auditId}
+        pageId={pageId ?? pages?.[0]?.[0]?.id}
+        questions={questions}
+      />
     </div>
   );
 }
