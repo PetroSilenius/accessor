@@ -1,8 +1,10 @@
 import { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 import { CssBaseline, ThemeProvider } from '@material-ui/core';
+import Topbar from './components/Topbar';
 import AuditForm from './components/AuditForm';
-import AuditReport from './components/AuditReport/index';
+import AuditReport from './components/AuditReport';
+import LandingPage from './components/LandingPage';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './utils/i18n';
@@ -13,12 +15,16 @@ ReactDOM.render(
     <Router>
       <ThemeProvider theme={theme}>
         <CssBaseline />
+        <Topbar />
         <Switch>
           <Route path="/report/:auditId">
             <AuditReport />
           </Route>
-          <Route path="/">
+          <Route path="/audit">
             <AuditForm />
+          </Route>
+          <Route path="/">
+            <LandingPage />
           </Route>
         </Switch>
       </ThemeProvider>
