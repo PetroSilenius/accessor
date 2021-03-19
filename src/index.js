@@ -7,6 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './utils/i18n';
 import theme from './theme';
+import AuditorListing from './components/AuditorListing';
 
 ReactDOM.render(
   <StrictMode>
@@ -16,6 +17,9 @@ ReactDOM.render(
         <Switch>
           <Route path="/report/:auditId">
             <AuditReport />
+          </Route>
+          <Route path="/listing">
+            <AuditorListing />
           </Route>
           <Route path="/">
             <AuditForm />

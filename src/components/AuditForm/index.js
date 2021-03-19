@@ -13,10 +13,10 @@ import {
   makeStyles,
   TextField,
 } from '@material-ui/core';
-import { firestore } from '../firebase';
+import { firestore } from '../../firebase';
 import firebase from 'firebase/app';
 import { useTranslation } from 'react-i18next';
-import i18n from '../utils/i18n';
+import i18n from '../../utils/i18n';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 const useStyles = makeStyles((theme) => ({

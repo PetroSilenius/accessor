@@ -17,5 +17,8 @@
 		"header": "Auditointiraportti",
 		"subheader": "Raportin tiedot",
 		"description": "Tämä kuvailee tarkemmin mistä auditointi muodostuu"
+	},
+	"auditor_listing":{
+		"header":"Auditoija ilmoitukset"
 	}
 }
