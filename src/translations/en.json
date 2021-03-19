@@ -17,5 +17,8 @@
 		"header": "Audit Report",
 		"subheader": "Report details",
 		"description": "This describes better what the audit consist of"
+	},
+	"auditor_listing":{
+		"header":"Available auditors"
 	}
 }
