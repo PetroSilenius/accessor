@@ -99,7 +99,11 @@ function Topbar() {
             <AccountCircle />
           </IconButton>
         </Tooltip>
-        <Menu keepMounted anchorEl={anchorEl} open={Boolean(anchorEl)}>
+        <Menu
+          keepMounted
+          anchorEl={anchorEl}
+          open={Boolean(anchorEl)}
+          onClose={() => setAnchorEl(null)}>
           <MenuItem>
             <Link component={RouterLink} to={'/profile'} className={classes.textDecoration}>
               Profile
