@@ -1,11 +1,14 @@
 import {
+  CircularProgress,
   Container,
   Grid,
   makeStyles,
   Paper,
   Typography,
 } from "@material-ui/core";
+import { useCollectionData } from "react-firebase-hooks/firestore";
 import { useTranslation } from "react-i18next";
+import { firestore } from "../../firebase";
 import ProfileCard from "./ProfileCard";
 
 const useStyles = makeStyles((theme) => ({
@@ -31,67 +34,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const users = [
-  {
-    name: "Testi",
-    company:"Auditor aatu",
-    auditor: true,
-    hourlyRate: 69,
-    rating: 4.5,
-    description: "Tiukkaa analyysia",
-    photoUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/7/7e/Circle-icons-profile.svg",
-  },  {
-    name: "Testi",
-    company:"Auditors.com",
-    auditor: true,
-    hourlyRate: 40,
-    rating: 1.5,
-    description: "Moro moro",
-    photoUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/7/7e/Circle-icons-profile.svg",
-  },  {
-    name: "Testi",
-    company:"Auditors.com",
-    auditor: true,
-    hourlyRate: 40,
-    rating: 1.5,
-    description: "Moro moro",
-    photoUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/7/7e/Circle-icons-profile.svg",
-  },  {
-    name: "Testi",
-    company:"Auditors.com",
-    auditor: true,
-    hourlyRate: 40,
-    rating: 1.5,
-    description: "Moro moro",
-    photoUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/7/7e/Circle-icons-profile.svg",
-  },  {
-    name: "Testi",
-    company:"Auditors.com",
-    auditor: true,
-    hourlyRate: 40,
-    rating: 1.5,
-    description: "Moro moro",
-    photoUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/7/7e/Circle-icons-profile.svg",
-  },  {
-    name: "Testi",
-    company:"Auditors.com",
-    auditor: true,
-    hourlyRate: 40,
-    rating: 1.5,
-    description: "Moro moro",
-    photoUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/7/7e/Circle-icons-profile.svg",
-  },
-];
-
 export default function AuditorListing() {
   const classes = useStyles();
   const {t} = useTranslation();
+  const usersRef = firestore.collection('users');
+  const [users] = useCollectionData(usersRef.where('auditor', '==', true));
 
   return (
     <div className={classes.container}>
@@ -102,9 +49,9 @@ export default function AuditorListing() {
         </Grid>
 		  </Paper>
         <Grid container spacing={3} justify="space-evenly">
-          {users.map((user) => (
-            (user.auditor)?<ProfileCard user={user} />:undefined
-          ))}
+          {users? users.map((user) => (
+            <ProfileCard user={user} />
+          )): <CircularProgress />}
         </Grid>
       </Container>
     </div>
