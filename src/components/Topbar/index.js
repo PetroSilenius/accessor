@@ -12,6 +12,7 @@ import {
 } from '@material-ui/core';
 import { Link as RouterLink } from 'react-router-dom';
 import { Mail, AccountCircle } from '@material-ui/icons';
+import { useTranslation } from 'react-i18next';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import firebase from 'firebase/app';
 import { auth } from '../../firebase';
@@ -45,6 +46,7 @@ const signInWithGoogle = () => {
 
 function Topbar() {
   const classes = useStyles();
+  const { t } = useTranslation();
   const [user] = useAuthState(auth);
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -79,14 +81,14 @@ function Topbar() {
           to={'/audit'}
           color="secondary"
           className={`${classes.link} ${classes.textDecoration}`}>
-          Audit
+          {t('top_bar.audit')}
         </Link>
         <Link
           component={RouterLink}
           to={'/report/q8eiRHBVXvOLEtsQMzKe'}
           color="secondary"
           className={`${classes.link} ${classes.textDecoration}`}>
-          Example report
+          {t('top_bar.example_report')}
         </Link>
         <div className={classes.grow} />
         <IconButton aria-label="show 4 new mails" color="inherit">
@@ -105,11 +107,15 @@ function Topbar() {
           open={Boolean(anchorEl)}
           onClose={() => setAnchorEl(null)}>
           <MenuItem>
-            <Link component={RouterLink} to={'/profile'} className={classes.textDecoration}>
-              Profile
+            <Link
+              component={RouterLink}
+              to={'/profile'}
+              onClick={() => setAnchorEl(null)}
+              className={classes.textDecoration}>
+              {t('top_bar.profile')}
             </Link>
           </MenuItem>
-          <MenuItem onClick={signOut}>Log out</MenuItem>
+          <MenuItem onClick={signOut}>{t('top_bar.log_out')}</MenuItem>
         </Menu>
       </Toolbar>
     </AppBar>
