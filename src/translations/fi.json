@@ -4,7 +4,9 @@
 		"instructions_header": "Täytä auditoinnin tiedot alle",
 		"page_url": "Sivuston url",
 		"question": "Kysymys",
-		"submit": "Lähetä vastaukset"
+		"submit": "Lähetä vastaukset",
+		"add_page" : "Lisää sivu +",
+		"page":"Sivu"
 	},
 	"user_info": {
 		"header": "Käyttäjätiedot",

@@ -4,7 +4,9 @@
 		"instructions_header": "Fill in the audit information below",
 		"page_url": "Page url",
 		"question": "Question",
-		"submit": "Submit answers"
+		"submit": "Submit answers",
+		"add_page": "Add page +",
+		"page":"Page"
 	},
 	"user_info": {
 		"header": "User information",
