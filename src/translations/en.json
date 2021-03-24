@@ -11,11 +11,23 @@
 		"change_lang": "Suomeksi",
 		"peripherals": "Peripherals",
 		"description": "Own description",
-		"company": "Company"
+		"company": "Company",
+		"hourly_rate": "Hourly rate",
+		"your_info": "Your information",
+		"save": "Save",
+		"role": "Role",
+		"auditor": "Auditor",
+		"client": "Client"
 	},
 	"audit_report": {
 		"header": "Audit Report",
 		"subheader": "Report details",
 		"description": "This describes better what the audit consist of"
+	},
+	"top_bar": {
+		"audit": "Auditoi",
+		"example_report": "Example report",
+		"profile": "Profile",
+		"log_out": "Log out"
 	}
 }

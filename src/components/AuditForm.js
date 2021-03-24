@@ -25,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage: theme.backgroundImage,
     backgroundAttachment: 'fixed',
     backgroundSize: 'cover',
+    minHeight: 'calc(100vh - 64px)',
   },
   card: {
     backgroundColor: theme.palette.secondary.lighter,
