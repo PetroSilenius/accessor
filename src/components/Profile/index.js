@@ -31,8 +31,7 @@ const useStyles = makeStyles((theme) => ({
     minHeight: 'calc(100vh - 64px)',
   },
   card: {
-    minWidth: 735,
-    minHeight: 610,
+    minHeight: 710,
   },
   flexRow: {
     flexDirection: 'row',
