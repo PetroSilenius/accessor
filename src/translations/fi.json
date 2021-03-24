@@ -11,11 +11,23 @@
 		"change_lang": "In English",
 		"peripherals": "Oheislaitteet",
 		"description": "Oma kuvaus",
-		"company": "Yritys"
+		"company": "Yritys",
+		"hourly_rate": "Tuntihinta",
+		"your_info": "Sinun tietosi",
+		"save": "Tallenna",
+		"role": "Rooli",
+		"auditor": "Auditoija",
+		"client": "Asiakas"
 	},
 	"audit_report": {
 		"header": "Auditointiraportti",
 		"subheader": "Raportin tiedot",
 		"description": "Tämä kuvailee tarkemmin mistä auditointi muodostuu"
+	},
+	"top_bar": {
+		"audit": "Auditoi",
+		"example_report": "Esimerkki raportti",
+		"profile": "Profiili",
+		"log_out": "Kirjaudu ulos"
 	}
 }
