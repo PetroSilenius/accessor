@@ -1,26 +1,38 @@
 {
-	"audit_form": {
-		"header": "Audit form",
-		"instructions_header": "Fill in the audit information below",
-		"page_url": "Page url",
-		"question": "Question",
-		"submit": "Submit answers",
-		"add_page": "Add page +",
-		"page":"Page"
-	},
-	"user_info": {
-		"header": "User information",
-		"change_lang": "Suomeksi",
-		"peripherals": "Peripherals",
-		"description": "Own description",
-		"company": "Company"
-	},
-	"audit_report": {
-		"header": "Audit Report",
-		"subheader": "Report details",
-		"description": "This describes better what the audit consist of"
-	},
-	"auditor_listing":{
-		"header":"Available auditors"
-	}
+  "audit_form": {
+    "header": "Audit form",
+    "instructions_header": "Fill in the audit information below",
+    "page_url": "Page url",
+    "question": "Question",
+    "submit": "Submit answers",
+    "add_page": "Add page +",
+    "page": "Page"
+  },
+  "user_info": {
+    "header": "User information",
+    "change_lang": "Suomeksi",
+    "peripherals": "Peripherals",
+    "description": "Own description",
+    "company": "Company",
+    "hourly_rate": "Hourly rate",
+    "your_info": "Your information",
+    "save": "Save",
+    "role": "Role",
+    "auditor": "Auditor",
+    "client": "Client"
+  },
+  "audit_report": {
+    "header": "Audit Report",
+    "subheader": "Report details",
+    "description": "This describes better what the audit consist of"
+  },
+  "auditor_listing": {
+    "header": "Available auditors"
+  },
+  "top_bar": {
+    "audit": "Auditoi",
+    "example_report": "Example report",
+    "profile": "Profile",
+    "log_out": "Log out"
+  }
 }

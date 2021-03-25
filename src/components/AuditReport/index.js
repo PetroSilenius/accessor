@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage: theme.backgroundImage,
     backgroundAttachment: 'fixed',
     backgroundSize: 'cover',
+    minHeight: 'calc(100vh - 64px)',
   },
   tabs: {
     backgroundColor: theme.palette.secondary.main,
@@ -30,6 +31,7 @@ function AuditReport() {
   const [questions] = useCollectionData(questionsRef, { idField: 'id' });
 
   const [pageId, setPageId] = useState();
+  console.log(auditId, audit);
 
   useEffect(() => {
     setPageId(pages?.[0]?.[0].id);

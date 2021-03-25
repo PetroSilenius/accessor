@@ -1,34 +1,52 @@
-import { StrictMode } from 'react';
-import ReactDOM from 'react-dom';
-import { CssBaseline, ThemeProvider } from '@material-ui/core';
-import AuditForm from './components/AuditForm';
-import AuditReport from './components/AuditReport/index';
-import reportWebVitals from './reportWebVitals';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import './utils/i18n';
-import theme from './theme';
-import AuditorListing from './components/AuditorListing';
+import { CssBaseline, ThemeProvider } from "@material-ui/core";
+import { StrictMode, useContext } from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import AuditForm from "./components/AuditForm";
+import AuditorListing from "./components/AuditorListing";
+import AuditReport from "./components/AuditReport";
+import LandingPage from "./components/LandingPage";
+import Profile from "./components/Profile";
+import Topbar from "./components/Topbar";
+import reportWebVitals from "./reportWebVitals";
+import theme from "./theme";
+import { UserContext, UserProvider } from "./UserContext";
+import "./utils/i18n";
+
+function FrontPage() {
+  const user = useContext(UserContext);
+  if (user) {
+    return <AuditorListing />;
+  }
+  return <LandingPage />;
+}
 
 ReactDOM.render(
   <StrictMode>
-    <Router>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Switch>
-          <Route path="/report/:auditId">
-            <AuditReport />
-          </Route>
-          <Route path="/listing">
-            <AuditorListing />
-          </Route>
-          <Route path="/">
-            <AuditForm />
-          </Route>
-        </Switch>
-      </ThemeProvider>
-    </Router>
+    <UserProvider>
+      <Router>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <Topbar />
+          <Switch>
+            <Route path="/report/:auditId">
+              <AuditReport />
+            </Route>
+            <Route path="/audit">
+              <AuditForm />
+            </Route>
+            <Route path="/profile">
+              <Profile />
+            </Route>
+            <Route path="/">
+              <FrontPage />
+            </Route>
+          </Switch>
+        </ThemeProvider>
+      </Router>
+    </UserProvider>
   </StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
