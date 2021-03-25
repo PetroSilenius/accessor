@@ -1,26 +1,38 @@
 {
-	"audit_form": {
-		"header": "Auditointilomake",
-		"instructions_header": "Täytä auditoinnin tiedot alle",
-		"page_url": "Sivuston url",
-		"question": "Kysymys",
-		"submit": "Lähetä vastaukset",
-		"add_page" : "Lisää sivu +",
-		"page":"Sivu"
-	},
-	"user_info": {
-		"header": "Käyttäjätiedot",
-		"change_lang": "In English",
-		"peripherals": "Oheislaitteet",
-		"description": "Oma kuvaus",
-		"company": "Yritys"
-	},
-	"audit_report": {
-		"header": "Auditointiraportti",
-		"subheader": "Raportin tiedot",
-		"description": "Tämä kuvailee tarkemmin mistä auditointi muodostuu"
-	},
-	"auditor_listing":{
-		"header":"Auditoija ilmoitukset"
-	}
+  "audit_form": {
+    "header": "Auditointilomake",
+    "instructions_header": "Täytä auditoinnin tiedot alle",
+    "page_url": "Sivuston url",
+    "question": "Kysymys",
+    "submit": "Lähetä vastaukset",
+    "add_page": "Lisää sivu +",
+    "page": "Sivu"
+  },
+  "user_info": {
+    "header": "Käyttäjätiedot",
+    "change_lang": "In English",
+    "peripherals": "Oheislaitteet",
+    "description": "Oma kuvaus",
+    "company": "Yritys",
+    "hourly_rate": "Tuntihinta",
+    "your_info": "Sinun tietosi",
+    "save": "Tallenna",
+    "role": "Rooli",
+    "auditor": "Auditoija",
+    "client": "Asiakas"
+  },
+  "audit_report": {
+    "header": "Auditointiraportti",
+    "subheader": "Raportin tiedot",
+    "description": "Tämä kuvailee tarkemmin mistä auditointi muodostuu"
+  },
+  "auditor_listing": {
+    "header": "Auditoija ilmoitukset"
+  },
+  "top_bar": {
+    "audit": "Auditoi",
+    "example_report": "Esimerkki raportti",
+    "profile": "Profiili",
+    "log_out": "Kirjaudu ulos"
+  }
 }
