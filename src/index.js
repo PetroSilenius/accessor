@@ -33,7 +33,7 @@ ReactDOM.render(
             <Route path="/report/:auditId">
               <AuditReport />
             </Route>
-            <Route path="/audit">
+            <Route path="/audit/:postingId?">
               <AuditForm />
             </Route>
             <Route path="/posting/:auditorId">
