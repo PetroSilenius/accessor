@@ -27,7 +27,13 @@
     "description": "This describes better what the audit consist of"
   },
   "auditor_listing": {
-    "header": "Available auditors"
+    "header": "Available auditors",
+    "contact": "Send offer"
+  },
+  "audit_posting": {
+    "header": "Fill posting info",
+    "subheader": "General information",
+    "add_page": "Add new page"
   },
   "top_bar": {
     "audit": "Auditoi",

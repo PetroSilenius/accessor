@@ -71,8 +71,8 @@ function AuditPosting() {
         <Grid item xs={10}>
           <Card variant="outlined" className={classes.card}>
             <CardContent>
-              <h1>Täytä postauksen tiedot</h1>
-              <h2>General information</h2>
+              <h1>{t('audit_posting.header')}</h1>
+              <h2>{t('audit_posting.subheader')}</h2>
               <Grid container spacing={2}>
                 <Grid item xs={12}>
                   <TextField
@@ -124,7 +124,7 @@ function AuditPosting() {
               size="large"
               startIcon={<AddIcon />}
               onClick={addPage}>
-              Add new page
+              {t('audit_posting.add_page')}
             </Button>
 
             <Button variant="contained" color="primary" size="large" onClick={onSubmit}>
