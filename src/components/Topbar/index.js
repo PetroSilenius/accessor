@@ -106,15 +106,13 @@ function Topbar() {
           anchorEl={anchorEl}
           open={Boolean(anchorEl)}
           onClose={() => setAnchorEl(null)}>
-          <MenuItem>
-            <Link
-              component={RouterLink}
-              to={'/profile'}
-              onClick={() => setAnchorEl(null)}
-              className={classes.textDecoration}>
-              {t('top_bar.profile')}
-            </Link>
-          </MenuItem>
+          <Link
+            component={RouterLink}
+            to={'/profile'}
+            onClick={() => setAnchorEl(null)}
+            className={classes.textDecoration}>
+            <MenuItem>{t('top_bar.profile')}</MenuItem>
+          </Link>
           <MenuItem onClick={signOut}>{t('top_bar.log_out')}</MenuItem>
         </Menu>
       </Toolbar>
