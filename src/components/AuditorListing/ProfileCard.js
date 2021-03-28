@@ -1,6 +1,7 @@
 import { Button, Grid, makeStyles, Paper, Typography } from '@material-ui/core';
 import { Rating } from '@material-ui/lab';
 import { useHistory } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -20,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ProfileCard({ user }) {
   const classes = useStyles();
-
+  const { t } = useTranslation();
   const history = useHistory();
 
   return (
@@ -40,7 +41,7 @@ export default function ProfileCard({ user }) {
             variant="contained"
             color="primary"
             onClick={() => history.push(`/posting/${user.id}`)}>
-            Contact auditor
+            {t('auditor_listing.contact')}
           </Button>
         </Grid>
       </Paper>

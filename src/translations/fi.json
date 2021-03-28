@@ -27,7 +27,13 @@
     "description": "Tämä kuvailee tarkemmin mistä auditointi muodostuu"
   },
   "auditor_listing": {
-    "header": "Auditoija ilmoitukset"
+    "header": "Auditoija ilmoitukset",
+    "contact": "Lähetä tarjous"
+  },
+  "audit_posting": {
+    "header": "Täytä postauksen tiedot",
+    "subheader": "Yleiset tiedot",
+    "add_page": "Lisää sivu"
   },
   "top_bar": {
     "audit": "Auditoi",
