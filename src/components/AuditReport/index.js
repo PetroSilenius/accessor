@@ -31,11 +31,10 @@ function AuditReport() {
   const [questions] = useCollectionData(questionsRef, { idField: 'id' });
 
   const [pageId, setPageId] = useState();
-  console.log(auditId, audit);
 
   useEffect(() => {
     setPageId(pages?.[0]?.[0].id);
-  }, []);
+  }, [pages]);
 
   const handleChange = (event, newValue) => {
     setPageId(newValue);
