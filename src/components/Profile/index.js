@@ -92,6 +92,9 @@ function Profile() {
       description: description,
       company: company,
       hourlyRate: rate,
+      photoURL: user.photoURL,
+      displayName: user.displayName,
+      email: user.email,
     });
   };
 

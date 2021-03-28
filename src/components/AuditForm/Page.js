@@ -29,34 +29,35 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-export default function Page({ id, checkedPeripherals, questions, setPages, pages }) {
+export default function Page({ id, checkedPeripherals, questions, setPages, pages, posting }) {
   const { t } = useTranslation();
   const classes = useStyles();
 
-  let handleChange = (e) =>{
+  let handleChange = (e) => {
     var arr = [...pages];
-    var obj = {...arr[id], pageUrl: e.target.value};
+    var obj = { ...arr[id], pageUrl: e.target.value };
     arr[id] = obj;
     setPages(arr);
-  }
+  };
 
   return (
     <React.Fragment>
-        <Card className={classes.card}>
-          <CardContent>
-            <h2>{t("audit_form.instructions_header")}</h2>
-            <h3>{t("audit_form.page_url")}</h3>
-            <TextField
-              required
-              id="pageUrl"
-              name="pageUrl"
-              label={t("audit_form.page_url")}
-              fullWidth
-              defaultValue={pages[id].pageUrl}
-              onChange={handleChange}
-            />
-          </CardContent>
-        </Card>
+      <Card className={classes.card}>
+        <CardContent>
+          <h2>{t('audit_form.instructions_header')}</h2>
+          <h3>{t('audit_form.page_url')}</h3>
+          <TextField
+            required
+            id="pageUrl"
+            name="pageUrl"
+            label={t('audit_form.page_url')}
+            fullWidth
+            defaultValue={pages[id].pageUrl}
+            onChange={handleChange}
+          />
+          <p>{posting?.pages[id]?.description}</p>
+        </CardContent>
+      </Card>
       <Questions
         checkedPeripherals={checkedPeripherals}
         questions={questions}
