@@ -87,12 +87,13 @@ function AuditForm() {
         var fetchedUser = await usersRef.doc(user.uid).get();
         fetchedUser = fetchedUser.data();
         var arr = [];
-        Object.keys(fetchedUser.peripherals).map((key) => {
+        Object.keys(fetchedUser.peripherals).forEach((key) => {
           if (fetchedUser.peripherals[key]) {
             arr.push(key);
           }
           setCheckedPeripherals(arr);
         });
+        console.log(arr);
       } catch (err) {
         console.error(err);
       }
