@@ -55,7 +55,11 @@ export default function AuditorListing() {
           </Grid>
         </Paper>
         <Grid container spacing={3} justify="space-evenly">
-          {users ? users.map((user) => <ProfileCard user={user} />) : <CircularProgress />}
+          {users ? (
+            users.map((user) => <ProfileCard user={user} key={user.id} />)
+          ) : (
+            <CircularProgress />
+          )}
         </Grid>
       </Container>
     </div>

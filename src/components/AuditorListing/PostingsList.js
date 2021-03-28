@@ -36,7 +36,7 @@ function PostingsList() {
       </Paper>
       <Grid container spacing={3} justify="space-evenly">
         {postings.map((posting) => (
-          <PostingCard posting={posting} />
+          <PostingCard posting={posting} key={posting.id} />
         ))}
       </Grid>
     </div>
