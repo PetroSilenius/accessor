@@ -10,6 +10,7 @@ import { useCollectionData } from 'react-firebase-hooks/firestore';
 import { useTranslation } from 'react-i18next';
 import { firestore } from '../../firebase';
 import ProfileCard from './ProfileCard';
+import PostingsList from './PostingsList';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -45,6 +46,7 @@ export default function AuditorListing() {
   return (
     <div className={classes.container}>
       <Container maxWidth="md" style={{ padding: 5 }}>
+        <PostingsList />
         <Paper style={{ marginBottom: 20 }}>
           <Grid item xs={12}>
             <Typography variant="h4" style={{ textAlign: 'center', padding: 20 }}>

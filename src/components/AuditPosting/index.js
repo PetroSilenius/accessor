@@ -57,8 +57,8 @@ function AuditPosting() {
   const onSubmit = () => {
     const postingRef = firestore.collection(`postings`).doc();
     postingRef.set({
-      auditor: firestore.doc(`users/${auditorId}`),
-      poster: firestore.doc(`users/${user.uid}`),
+      auditorId: auditorId,
+      posterId: user.uid,
       pages: pages,
       description: description,
       pageUrl: pageUrl,
