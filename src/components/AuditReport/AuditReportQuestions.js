@@ -36,7 +36,7 @@ function AuditReportQuestions({ auditId, pageId, questions }) {
           <Card variant="outlined" className={classes.card}>
             <CardContent>
               <h3>{question[i18n.language]}</h3>
-              <p>{page?.questions[question.id]}</p>
+              <p>{page?.[question.id]}</p>
               <Link
                 href={`https://www.w3.org/TR/WCAG21/#${question.wcag}`}
                 target="_blank"
