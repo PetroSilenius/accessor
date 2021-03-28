@@ -6,32 +6,34 @@ import {
   Container,
   Grid,
   makeStyles,
+  Link,
   Tab,
   Tabs,
   Typography,
-} from "@material-ui/core";
-import firebase from "firebase/app";
-import React, { useContext, useEffect, useState } from "react";
-import { useCollectionData } from "react-firebase-hooks/firestore";
-import { useTranslation } from "react-i18next";
-import { firestore } from "../../firebase";
-import { UserContext } from "../../UserContext";
-import Page from "./Page";
+} from '@material-ui/core';
+import firebase from 'firebase/app';
+import React, { useContext, useEffect, useState } from 'react';
+import { useCollectionData, useDocumentData } from 'react-firebase-hooks/firestore';
+import { useTranslation } from 'react-i18next';
+import { firestore } from '../../firebase';
+import { UserContext } from '../../UserContext';
+import Page from './Page';
+import { useParams } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   container: {
     backgroundColor: theme.palette.secondary.main,
     backgroundImage: theme.backgroundImage,
-    backgroundAttachment: "fixed",
-    backgroundSize: "cover",
+    backgroundAttachment: 'fixed',
+    backgroundSize: 'cover',
   },
   card: {
     backgroundColor: theme.palette.secondary.lighter,
   },
   submitButton: {
     margin: 20,
-    "& button": {
-      float: "right",
+    '& button': {
+      float: 'right',
     },
   },
 }));
@@ -45,8 +47,7 @@ function TabPanel(props) {
       hidden={value !== index}
       id={`full-width-tabpanel-${index}`}
       aria-labelledby={`full-width-tab-${index}`}
-      {...other}
-    >
+      {...other}>
       {value === index && (
         <Box>
           <Typography>{children}</Typography>
@@ -59,23 +60,26 @@ function TabPanel(props) {
 function a11yProps(index) {
   return {
     id: `simple-tab-${index}`,
-    "aria-controls": `simple-tabpanel-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
   };
 }
 
 function AuditForm() {
   const { t } = useTranslation();
   const classes = useStyles();
-  const auditsRef = firestore.collection("audits").doc();
-  const questionsRef = firestore.collection("questions");
-  const [questions] = useCollectionData(questionsRef.orderBy("id").limit(25), {
-    idField: "id",
+  const { postingId } = useParams();
+  const auditsRef = firestore.collection('audits').doc(postingId);
+  const questionsRef = firestore.collection('questions');
+  const [questions] = useCollectionData(questionsRef.orderBy('id').limit(25), {
+    idField: 'id',
   });
+  const postingRef = firestore.doc(`postings/${postingId}`);
+  const [posting] = useDocumentData(postingRef);
   const user = useContext(UserContext);
   const [checkedPeripherals, setCheckedPeripherals] = useState();
   const [activeTab, setActiveTab] = useState(0);
   const [pages, setPages] = useState([{}]);
-  const usersRef = firestore.collection("users");
+  const usersRef = firestore.collection('users');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -98,6 +102,15 @@ function AuditForm() {
     }
   }, [user]);
 
+  useEffect(() => {
+    if (posting && posting.pages) {
+      const postingPages = Object.values(posting?.pages).map((page) => {
+        return { pageUrl: page.pageUrl };
+      });
+      setPages(postingPages);
+    }
+  }, [posting]);
+
   const submitForm = async (e) => {
     console.log(user);
     e.preventDefault();
@@ -111,20 +124,20 @@ function AuditForm() {
     auditsRef
       .set(auditData)
       .then(() => {
-        console.log(auditData, "successfully written!");
+        console.log(auditData, 'successfully written!');
       })
       .catch((error) => {
-        console.error("Error writing document: ", error);
+        console.error('Error writing document: ', error);
       });
     pages.forEach((page) => {
       auditsRef
-        .collection("pages")
+        .collection('pages')
         .add(page)
         .then(() => {
-          console.log(auditPageData, "successfully written!");
+          console.log(auditPageData, 'successfully written!');
         })
         .catch((error) => {
-          console.error("Error writing document: ", error);
+          console.error('Error writing document: ', error);
         });
     });
     return false;
@@ -138,7 +151,15 @@ function AuditForm() {
             <Grid item xs={10}>
               <Card className={classes.card}>
                 <CardContent>
-                  <h1>{t("audit_form.header")}</h1>
+                  <h1>{t('audit_form.header')}</h1>
+                  {posting && (
+                    <>
+                      <Link color="initial" href={posting.pageUrl}>
+                        {posting.pageUrl}
+                      </Link>
+                      <p>{posting.description}</p>
+                    </>
+                  )}
                 </CardContent>
               </Card>
             </Grid>
@@ -152,17 +173,12 @@ function AuditForm() {
                     }}
                     variant="scrollable"
                     scrollButtons="auto"
-                    aria-label="simple tabs example"
-                  >
+                    aria-label="simple tabs example">
                     {pages.map((page, idx) => (
-                      <Tab
-                        key={idx}
-                        label={t("audit_form.page") + (idx + 1)}
-                        {...a11yProps(idx)}
-                      />
+                      <Tab key={idx} label={t('audit_form.page') + (idx + 1)} {...a11yProps(idx)} />
                     ))}
                     <Tab
-                      label={t("audit_form.add_page")}
+                      label={t('audit_form.add_page')}
                       onClick={() => {
                         var arr = [...pages];
                         arr.push({});
@@ -183,6 +199,7 @@ function AuditForm() {
                           id={id}
                           checkedPeripherals={checkedPeripherals}
                           questions={questions}
+                          posting={posting}
                           setPages={setPages}
                           pages={pages}
                         />
@@ -192,13 +209,8 @@ function AuditForm() {
                 : null}
             </Grid>
             <Grid item xs={10} className={classes.submitButton}>
-              <Button
-                variant="contained"
-                color="primary"
-                size="large"
-                type="submit"
-              >
-                {t("audit_form.submit")}
+              <Button variant="contained" color="primary" size="large" type="submit">
+                {t('audit_form.submit')}
               </Button>
             </Grid>
           </Grid>
