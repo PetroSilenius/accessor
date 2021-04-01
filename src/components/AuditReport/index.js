@@ -33,7 +33,7 @@ function AuditReport() {
   const [pageId, setPageId] = useState();
 
   useEffect(() => {
-    setPageId(pages?.[0]?.[0].id);
+    setPageId(pages?.[0]?.[0]?.id);
   }, [pages]);
 
   const handleChange = (event, newValue) => {

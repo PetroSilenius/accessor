@@ -62,7 +62,7 @@ export default function AuditorListing() {
         <Grid container spacing={3} justify="space-evenly">
           {users ? (
             users.map((u) => (
-              <ProfileCard user={u} loggedUserIsAuditor={userIsAuditor} key={user.id} />
+              <ProfileCard user={u} loggedUserIsAuditor={userIsAuditor} key={u.id} />
             ))
           ) : (
             <CircularProgress />
