@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ProfileCard({ user }) {
+export default function ProfileCard({ user, loggedUserIsAuditor }) {
   const classes = useStyles();
   const { t } = useTranslation();
   const history = useHistory();
@@ -37,12 +37,14 @@ export default function ProfileCard({ user }) {
           <Typography variant="h6">{user.company}</Typography>
           <Typography>"{user.description}"</Typography>
           <Typography style={{ fontWeight: 'bold' }}>{user.hourlyRate}€/h</Typography>
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={() => history.push(`/posting/${user.id}`)}>
-            {t('auditor_listing.contact')}
-          </Button>
+          {!loggedUserIsAuditor && (
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={() => history.push(`/posting/${user.id}`)}>
+              {t('auditor_listing.contact')}
+            </Button>
+          )}
         </Grid>
       </Paper>
     </Grid>
