@@ -34,8 +34,9 @@ export default function ProfileCard({ user, loggedUserIsAuditor }) {
               <Rating name="disabled" value={user.rating} precision={0.5} disabled />
             </div>
           </Grid>
-          <Typography variant="h6">{user.company}</Typography>
-          <Typography>"{user.description}"</Typography>
+          <Typography variant="h6">{user.displayName}</Typography>
+          <Typography>{user.company}</Typography>
+          <Typography>{user.description}</Typography>
           <Typography style={{ fontWeight: 'bold' }}>{user.hourlyRate}€/h</Typography>
           {!loggedUserIsAuditor && (
             <Button
