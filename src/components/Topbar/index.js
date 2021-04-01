@@ -74,7 +74,7 @@ function Topbar() {
           to={'/'}
           color="secondary"
           className={`${classes.link} ${classes.textDecoration}`}>
-          Logo here
+          <b>Accessor</b>
         </Link>
         <Link
           component={RouterLink}
