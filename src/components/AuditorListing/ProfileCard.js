@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ProfileCard({ user }) {
+export default function ProfileCard({ user, loggedUserIsAuditor }) {
   const classes = useStyles();
   const { t } = useTranslation();
   const history = useHistory();
@@ -34,15 +34,18 @@ export default function ProfileCard({ user }) {
               <Rating name="disabled" value={user.rating} precision={0.5} disabled />
             </div>
           </Grid>
-          <Typography variant="h6">{user.company}</Typography>
-          <Typography>"{user.description}"</Typography>
+          <Typography variant="h6">{user.displayName}</Typography>
+          <Typography>{user.company}</Typography>
+          <Typography>{user.description}</Typography>
           <Typography style={{ fontWeight: 'bold' }}>{user.hourlyRate}€/h</Typography>
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={() => history.push(`/posting/${user.id}`)}>
-            {t('auditor_listing.contact')}
-          </Button>
+          {!loggedUserIsAuditor && (
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={() => history.push(`/posting/${user.id}`)}>
+              {t('auditor_listing.contact')}
+            </Button>
+          )}
         </Grid>
       </Paper>
     </Grid>

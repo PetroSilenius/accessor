@@ -11,6 +11,8 @@ import { useTranslation } from 'react-i18next';
 import { firestore } from '../../firebase';
 import ProfileCard from './ProfileCard';
 import PostingsList from './PostingsList';
+import { useContext } from 'react';
+import { UserContext } from '../../UserContext';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -38,15 +40,18 @@ const useStyles = makeStyles((theme) => ({
 export default function AuditorListing() {
   const classes = useStyles();
   const { t } = useTranslation();
+  const user = useContext(UserContext);
   const usersRef = firestore.collection('users');
   const [users] = useCollectionData(usersRef.where('auditor', '==', true), {
     idField: 'id',
   });
 
+  const userIsAuditor = users?.some((u) => u.id === user.uid);
+
   return (
     <div className={classes.container}>
       <Container maxWidth="md" style={{ padding: 5 }}>
-        <PostingsList />
+        <PostingsList userId={user.uid} />
         <Paper style={{ marginBottom: 20 }}>
           <Grid item xs={12}>
             <Typography variant="h4" style={{ textAlign: 'center', padding: 20 }}>
@@ -56,7 +61,9 @@ export default function AuditorListing() {
         </Paper>
         <Grid container spacing={3} justify="space-evenly">
           {users ? (
-            users.map((user) => <ProfileCard user={user} key={user.id} />)
+            users.map((u) => (
+              <ProfileCard user={u} loggedUserIsAuditor={userIsAuditor} key={user.id} />
+            ))
           ) : (
             <CircularProgress />
           )}

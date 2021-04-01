@@ -1,8 +1,8 @@
 {
   "audit_form": {
-    "header": "Auditointilomake",
-    "instructions_header": "Täytä auditoinnin tiedot alle",
-    "page_url": "Sivuston url",
+    "header": "Verkkosivun arviointilomake",
+    "instructions_header": "Täytä arvioinnin tiedot alle",
+    "page_url": "Arvioitavan sivuston osoite",
     "question": "Kysymys",
     "submit": "Lähetä vastaukset",
     "add_page": "Lisää sivu +",
@@ -22,12 +22,12 @@
     "client": "Asiakas"
   },
   "audit_report": {
-    "header": "Auditointiraportti",
+    "header": "Arviointiraportti",
     "subheader": "Raportin tiedot",
-    "description": "Tämä kuvailee tarkemmin mistä auditointi muodostuu"
+    "description": "Tämä kuvailee tarkemmin mistä arviointi muodostuu"
   },
   "auditor_listing": {
-    "posting_header": "Tehtävät auditit",
+    "posting_header": "Tehtävät arvioinnit",
     "header": "Auditoija ilmoitukset",
     "contact": "Lähetä tarjous",
     "page_amount": "Sivujen määrä: "
@@ -38,7 +38,7 @@
     "add_page": "Lisää sivu"
   },
   "top_bar": {
-    "audit": "Auditoi",
+    "audit": "Arvioi",
     "example_report": "Esimerkki raportti",
     "profile": "Profiili",
     "log_out": "Kirjaudu ulos"

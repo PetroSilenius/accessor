@@ -1,9 +1,7 @@
-import { useContext } from 'react';
-import { Container, Grid, makeStyles, Paper, Typography } from '@material-ui/core';
+import { Grid, makeStyles, Paper, Typography } from '@material-ui/core';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 import { useTranslation } from 'react-i18next';
 import { firestore } from '../../firebase';
-import { UserContext } from '../../UserContext';
 import PostingCard from './PostingCard';
 
 const useStyles = makeStyles((theme) => ({
@@ -16,12 +14,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function PostingsList() {
-  const user = useContext(UserContext);
+function PostingsList({ userId }) {
   const classes = useStyles();
   const { t } = useTranslation();
   const postingsRef = firestore.collection('postings');
-  const [postings] = useCollectionData(postingsRef.where('auditorId', '==', user.uid), {
+  const [postings] = useCollectionData(postingsRef.where('auditorId', '==', userId), {
     idField: 'id',
   });
 
