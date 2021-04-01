@@ -7,12 +7,14 @@ import {
   Grid,
   makeStyles,
   Link,
+  Snackbar,
   Tab,
   Tabs,
   Typography,
 } from '@material-ui/core';
+import Alert from '@material-ui/lab/Alert';
 import firebase from 'firebase/app';
-import React, { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useCollectionData, useDocumentData } from 'react-firebase-hooks/firestore';
 import { useTranslation } from 'react-i18next';
 import { firestore } from '../../firebase';
@@ -79,6 +81,7 @@ function AuditForm() {
   const [checkedPeripherals, setCheckedPeripherals] = useState();
   const [activeTab, setActiveTab] = useState(0);
   const [pages, setPages] = useState([{}]);
+  const [submitted, setSubmitted] = useState(false);
   const usersRef = firestore.collection('users');
 
   useEffect(() => {
@@ -126,6 +129,7 @@ function AuditForm() {
       .set(auditData)
       .then(() => {
         console.log(auditData, 'successfully written!');
+        setSubmitted(true);
       })
       .catch((error) => {
         console.error('Error writing document: ', error);
@@ -215,6 +219,14 @@ function AuditForm() {
               </Button>
             </Grid>
           </Grid>
+          <Snackbar
+            open={submitted}
+            anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+            onClose={() => setSubmitted(false)}>
+            <Alert severity="success" onClose={() => setSubmitted(false)}>
+              {t('audit_form.saved')}
+            </Alert>
+          </Snackbar>
         </form>
       </Container>
     </div>
