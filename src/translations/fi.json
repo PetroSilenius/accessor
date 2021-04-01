@@ -6,7 +6,8 @@
     "question": "Kysymys",
     "submit": "Lähetä vastaukset",
     "add_page": "Lisää sivu +",
-    "page": "Sivu"
+    "page": "Sivu",
+    "saved": "Tallennettu!"
   },
   "user_info": {
     "header": "Käyttäjätiedot",
@@ -18,7 +19,7 @@
     "your_info": "Sinun tietosi",
     "save": "Tallenna",
     "role": "Rooli",
-    "auditor": "Auditoija",
+    "auditor": "Arvioija",
     "client": "Asiakas"
   },
   "audit_report": {
@@ -27,8 +28,8 @@
     "description": "Tämä kuvailee tarkemmin mistä arviointi muodostuu"
   },
   "auditor_listing": {
-    "posting_header": "Tehtävät arvioinnit",
-    "header": "Auditoija ilmoitukset",
+    "posting_header": "Meneillään olevat arvioinnit",
+    "header": "Saatavilla olevat arvioijat",
     "contact": "Lähetä tarjous",
     "page_amount": "Sivujen määrä: "
   },

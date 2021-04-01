@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import Alert from '@material-ui/lab/Alert';
 import {
   Button,
   Card,
@@ -15,6 +16,7 @@ import {
   TextField,
   RadioGroup,
   Radio,
+  Snackbar,
 } from '@material-ui/core';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 import { firestore } from '../../firebase';
@@ -50,6 +52,7 @@ function Profile() {
   const [description, setDescription] = useState('');
   const [company, setCompany] = useState('');
   const [rate, setRate] = useState(0);
+  const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
     const userRef = firestore.doc(`users/${user?.uid}`);
@@ -86,16 +89,20 @@ function Profile() {
 
   const onSubmit = () => {
     const userRef = firestore.doc(`users/${user?.uid}`);
-    userRef.set({
-      auditor: role,
-      peripherals: selectedPeripherals,
-      description: description,
-      company: company,
-      hourlyRate: rate,
-      photoURL: user.photoURL,
-      displayName: user.displayName,
-      email: user.email,
-    });
+    userRef
+      .set({
+        auditor: role,
+        peripherals: selectedPeripherals,
+        description: description,
+        company: company,
+        hourlyRate: rate,
+        photoURL: user.photoURL,
+        displayName: user.displayName,
+        email: user.email,
+      })
+      .then(() => {
+        setSubmitted(true);
+      });
   };
 
   return (
@@ -197,6 +204,14 @@ function Profile() {
                         {t('user_info.save')}
                       </Button>
                     </Grid>
+                    <Snackbar
+                      open={submitted}
+                      anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+                      onClose={() => setSubmitted(false)}>
+                      <Alert severity="success" onClose={() => setSubmitted(false)}>
+                        {t('audit_form.saved')}
+                      </Alert>
+                    </Snackbar>
                   </Grid>
                 ) : (
                   <></>
