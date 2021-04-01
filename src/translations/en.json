@@ -6,7 +6,8 @@
     "question": "Question",
     "submit": "Submit answers",
     "add_page": "Add page +",
-    "page": "Page"
+    "page": "Page",
+    "saved": "Saved!"
   },
   "user_info": {
     "header": "User information",
@@ -18,7 +19,7 @@
     "your_info": "Your information",
     "save": "Save",
     "role": "Role",
-    "auditor": "Auditor",
+    "auditor": "Evaluator",
     "client": "Client"
   },
   "audit_report": {
@@ -27,8 +28,8 @@
     "description": "This describes better what the evaluation consist of"
   },
   "auditor_listing": {
-    "posting_header": "Available evaluations",
-    "header": "Available auditors",
+    "posting_header": "Ongoing evaluations",
+    "header": "Available evaluators",
     "contact": "Send offer",
     "page_amount": "Page amount: "
   },

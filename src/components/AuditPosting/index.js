@@ -1,7 +1,8 @@
 import { useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Card, CardContent, Grid, TextField, Button } from '@material-ui/core';
+import { Card, CardContent, Grid, Snackbar, TextField, Button } from '@material-ui/core';
+import Alert from '@material-ui/lab/Alert';
 import AddIcon from '@material-ui/icons/Add';
 import { makeStyles } from '@material-ui/styles';
 import PageCard from './PageCard';
@@ -29,6 +30,7 @@ function AuditPosting() {
   const [pageUrl, setPageUrl] = useState('');
   const [description, setDescription] = useState('');
   const [pages, setPages] = useState({ 0: {} });
+  const [submitted, setSubmitted] = useState(false);
 
   const addPage = () => {
     const lastIndex = Object.keys(pages)[Object.keys(pages).length - 1];
@@ -56,13 +58,17 @@ function AuditPosting() {
 
   const onSubmit = () => {
     const postingRef = firestore.collection(`postings`).doc();
-    postingRef.set({
-      auditorId: auditorId,
-      posterId: user.uid,
-      pages: pages,
-      description: description,
-      pageUrl: pageUrl,
-    });
+    postingRef
+      .set({
+        auditorId: auditorId,
+        posterId: user.uid,
+        pages: pages,
+        description: description,
+        pageUrl: pageUrl,
+      })
+      .then(() => {
+        setSubmitted(true);
+      });
   };
 
   return (
@@ -133,6 +139,14 @@ function AuditPosting() {
           </Grid>
         </Grid>
       </Grid>
+      <Snackbar
+        open={submitted}
+        anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+        onClose={() => setSubmitted(false)}>
+        <Alert severity="success" onClose={() => setSubmitted(false)}>
+          {t('audit_form.saved')}
+        </Alert>
+      </Snackbar>
     </div>
   );
 }
