@@ -1,8 +1,8 @@
 {
   "audit_form": {
-    "header": "Audit form",
-    "instructions_header": "Fill in the audit information below",
-    "page_url": "Page url",
+    "header": "Website (accessibility) evaluation form",
+    "instructions_header": "Fill in the evaluation information below",
+    "page_url": "The address of the evaluated website",
     "question": "Question",
     "submit": "Submit answers",
     "add_page": "Add page +",
@@ -22,12 +22,12 @@
     "client": "Client"
   },
   "audit_report": {
-    "header": "Audit Report",
+    "header": "Evaluation Report",
     "subheader": "Report details",
-    "description": "This describes better what the audit consist of"
+    "description": "This describes better what the evaluation consist of"
   },
   "auditor_listing": {
-    "posting_header": "Available audits",
+    "posting_header": "Available evaluations",
     "header": "Available auditors",
     "contact": "Send offer",
     "page_amount": "Page amount: "
@@ -38,7 +38,7 @@
     "add_page": "Add new page"
   },
   "top_bar": {
-    "audit": "Auditoi",
+    "audit": "Evaluate",
     "example_report": "Example report",
     "profile": "Profile",
     "log_out": "Log out"
