@@ -21,6 +21,9 @@ function PostingsList({ userId }) {
   const [postings] = useCollectionData(postingsRef.where('auditorId', '==', userId), {
     idField: 'id',
   });
+  const [postingsAsPoster] = useCollectionData(postingsRef.where('posterId', '==', userId), {
+    idField: 'id',
+  });
 
   return postings ? (
     <div className={classes.marginBottom}>
@@ -35,6 +38,11 @@ function PostingsList({ userId }) {
         {postings.map((posting) => (
           <PostingCard posting={posting} key={posting.id} />
         ))}
+        {postingsAsPoster
+          ? postingsAsPoster.map((posting) => (
+              <PostingCard posting={posting} poster={true} key={posting.id} />
+            ))
+          : null}
       </Grid>
     </div>
   ) : null;
