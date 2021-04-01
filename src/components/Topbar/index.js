@@ -91,11 +91,6 @@ function Topbar() {
           {t('top_bar.example_report')}
         </Link>
         <div className={classes.grow} />
-        <IconButton aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="secondary">
-            <Mail />
-          </Badge>
-        </IconButton>
         <Tooltip title={user ? '' : 'Log In'}>
           <IconButton onClick={user ? handleProfileClick : signInWithGoogle} color="inherit">
             <AccountCircle />
