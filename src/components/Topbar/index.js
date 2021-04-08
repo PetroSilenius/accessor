@@ -90,6 +90,13 @@ function Topbar() {
           className={`${classes.link} ${classes.textDecoration}`}>
           {t('top_bar.example_report')}
         </Link>
+        <Link
+          component={RouterLink}
+          to={'/info'}
+          color="secondary"
+          className={`${classes.link} ${classes.textDecoration}`}>
+          INFO
+        </Link>
         <div className={classes.grow} />
         <IconButton aria-label="show 4 new mails" color="inherit">
           <Badge badgeContent={4} color="secondary">
