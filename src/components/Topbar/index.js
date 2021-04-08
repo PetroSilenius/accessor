@@ -90,6 +90,13 @@ function Topbar() {
           className={`${classes.link} ${classes.textDecoration}`}>
           {t('top_bar.example_report')}
         </Link>
+        <Link
+          component={RouterLink}
+          to={'/info'}
+          color="secondary"
+          className={`${classes.link} ${classes.textDecoration}`}>
+          INFO
+        </Link>
         <div className={classes.grow} />
         <Tooltip title={user ? '' : 'Log In'}>
           <IconButton onClick={user ? handleProfileClick : signInWithGoogle} color="inherit">
