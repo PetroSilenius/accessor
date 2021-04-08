@@ -43,5 +43,14 @@
     "example_report": "Example report",
     "profile": "Profile",
     "log_out": "Log out"
+  },
+  "info": {
+    "info-head": "About us",
+    "info-l1": "The aim of Accessor is to connect companies and organizations, who want their site to be accessible to those, who know what accessibility means.", 
+    "info-l2": "Our ultimate goal is to include people with disabilities in the process of designing and producing web services.",
+    "info-l3": "Let's make the web accessible for all!"
+  },
+  "landing": {
+    "header": "Welcome to Accessor!"
   }
 }

@@ -40,8 +40,17 @@
   },
   "top_bar": {
     "audit": "Arvioi",
-    "example_report": "Esimerkki raportti",
+    "example_report": "Esimerkkiraportti",
     "profile": "Profiili",
     "log_out": "Kirjaudu ulos"
+  },
+  "info": {
+    "info-head": "Tietoa meistä",
+    "info-l1": "Accessor yhdistää saavutettavuutta tavoittelevat organisaatiot, ja ihmiset, joilla on omakohtaista kokemusta saavutettavuudesta.",
+    "info-l2": "Lopullisena tavoitteenamme on osallistaa saavutettavuutta tarvitsevat ihmisvet verkkopalveluiden suunnitteluvaiheeseen.",
+    "info-l3": "Tehdään yhdessä verkosta saavutettava kaikille!"
+  },
+  "landing": {
+    "header": "Tervetuloa Accessoriin!"
   }
 }

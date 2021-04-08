@@ -2,6 +2,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../../firebase';
 import { Grid, Card, CardContent } from '@material-ui/core';
+import { useTranslation } from 'react-i18next';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -12,24 +13,24 @@ const useStyles = makeStyles((theme) => ({
     minHeight: 'calc(100vh - 64px)',
   },
   header: {
-    padding: 70,
+    fontSize: 60,
   },
 }));
 
 function LandingPage() {
   const classes = useStyles();
   const [user] = useAuthState(auth);
+  const { t } = useTranslation();
 
   return (
     <div className={classes.container}>
       <Grid container justify="center" alignItems="center" className={classes.container}>
-        <Grid container justify='center' alignItems='center' className={classes.header}>
-          <h1>Welcome to -insert name-!</h1>
-        </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={6} >
           <Card variant="outlined" className={classes.card}>
             <CardContent alignItems='center'>
-              <p>We are the #1 accessibility auditing platform! </p>
+            <Grid container justify="center" alignItems="center" >
+              <h1>{t('landing.header')}</h1>
+            </Grid>
             </CardContent>
           </Card>
         </Grid>

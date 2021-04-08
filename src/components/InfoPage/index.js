@@ -1,7 +1,8 @@
 import { makeStyles } from '@material-ui/core/styles';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../../firebase';
-import { Grid, Card, CardContent } from '@material-ui/core';
+import { Grid, Card, CardContent, Container } from '@material-ui/core';
+import { useTranslation } from 'react-i18next';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -9,33 +10,45 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage: theme.backgroundImage,
     backgroundAttachment: 'fixed',
     backgroundSize: 'cover',
-    minHeight: 'calc(100vh - 64px)',
+    minHeight: 'calc(100vh - 64px)'
   },
   header: {
-      padding: 70,
+      padding: 100,
+  },
+  card: {
+    textAlign: 'center'
+  },
+  grid_item: {
+    margin: 10
   }
 }));
 
 function InfoPage() {
   const classes = useStyles();
+  const { t } = useTranslation();
 
   return (
     <div className={classes.container}>
-      <Grid container justify="center" alignItems="center" className={classes.container}>
-        <Grid container justify="center" alignItems="center">
-            <h1>About us</h1>
-        </Grid>
-        <Grid item xs={6}>
-          <Card variant="outlined" className={classes.card}>
-            <CardContent>
-                <p>The aim of --insert name-- is to connect organizations that need and want their online services to be 
-                    accessible to those, who know what accessibility is. The ultimate goal is to include people with disabilities in 
-                    the process of designing and producing web services.</p>
-                <p></p>
+    <Container>
+      <Grid container justify="center" alignItems="stretch" direction="column" md={12} >
+        <Grid item justify="center" alignItems="center" className={classes.grid_item}>
+          <Card>
+            <CardContent textAlign="center" className={classes.card}>         
+                <h1>{t('info.info-head')}</h1>
+            </CardContent>
+          </Card>
+        </Grid>  
+        <Grid item className={classes.grid_item}>
+          <Card variant="outlined" >
+            <CardContent className={classes.card}>
+                <p>{t('info.info-l1')}</p>
+                <p>{t('info.info-l2')}</p>
+                <p>{t('info.info-l3')}</p>
             </CardContent>
           </Card>
         </Grid>
       </Grid>
+    </Container>
     </div>
   );
 }
