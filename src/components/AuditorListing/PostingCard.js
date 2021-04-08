@@ -7,7 +7,7 @@ function PostingCard({ posting, poster = false }) {
   const history = useHistory();
 
   return (
-    <Grid item xs={4}>
+    <Grid item xs={12} sm={6} md={4}>
       <Card>
         <CardContent>
           <Typography variant="h6">{posting.pageUrl}</Typography>
