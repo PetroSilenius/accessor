@@ -4,18 +4,19 @@ import {
   AppBar,
   Toolbar,
   IconButton,
-  Badge,
+  Button,
   Link,
   Menu,
   MenuItem,
   Tooltip,
 } from '@material-ui/core';
 import { Link as RouterLink } from 'react-router-dom';
-import { Mail, AccountCircle } from '@material-ui/icons';
+import { AccountCircle } from '@material-ui/icons';
 import { useTranslation } from 'react-i18next';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import firebase from 'firebase/app';
 import { auth } from '../../firebase';
+import i18n from '../../utils/i18n';
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -74,21 +75,7 @@ function Topbar() {
           to={'/'}
           color="secondary"
           className={`${classes.link} ${classes.textDecoration}`}>
-          <b>Accessor</b>
-        </Link>
-        <Link
-          component={RouterLink}
-          to={'/audit'}
-          color="secondary"
-          className={`${classes.link} ${classes.textDecoration}`}>
-          {t('top_bar.audit')}
-        </Link>
-        <Link
-          component={RouterLink}
-          to={'/report/q8eiRHBVXvOLEtsQMzKe'}
-          color="secondary"
-          className={`${classes.link} ${classes.textDecoration}`}>
-          {t('top_bar.example_report')}
+          <img src="/android-chrome-192x192.png" alt="Accessor-logo" width="48px" height="48px" />
         </Link>
         <Link
           component={RouterLink}
@@ -97,10 +84,20 @@ function Topbar() {
           className={`${classes.link} ${classes.textDecoration}`}>
           INFO
         </Link>
+
         <div className={classes.grow} />
+
+        <IconButton
+          color="inherit"
+          onClick={() => {
+            i18n.changeLanguage(i18n.language === 'fi' ? 'en' : 'fi');
+          }}>
+          {t('user_info.change_lang')}
+        </IconButton>
+
         <Tooltip title={user ? '' : 'Log In'}>
           <IconButton onClick={user ? handleProfileClick : signInWithGoogle} color="inherit">
-            <AccountCircle />
+            <AccountCircle fontSize="large" />
           </IconButton>
         </Tooltip>
         <Menu
