@@ -7,7 +7,9 @@
     "submit": "Lähetä vastaukset",
     "add_page": "Lisää sivu +",
     "page": "Sivu",
-    "saved": "Tallennettu!"
+    "saved": "Tallennettu!",
+    "yes": "Kyllä",
+    "no": "Ei"
   },
   "user_info": {
     "header": "Käyttäjätiedot",

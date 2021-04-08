@@ -7,7 +7,9 @@
     "submit": "Submit answers",
     "add_page": "Add page +",
     "page": "Page",
-    "saved": "Saved!"
+    "saved": "Saved!",
+    "yes": "Kyllä",
+    "no": "Ei"
   },
   "user_info": {
     "header": "User information",
