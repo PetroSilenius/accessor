@@ -12,33 +12,32 @@ const useStyles = makeStyles((theme) => ({
     minHeight: 'calc(100vh - 64px)',
   },
   header: {
-    padding: 70,
-  },
+      padding: 70,
+  }
 }));
 
-function LandingPage() {
+function InfoPage() {
   const classes = useStyles();
-  const [user] = useAuthState(auth);
 
   return (
     <div className={classes.container}>
       <Grid container justify="center" alignItems="center" className={classes.container}>
-        <Grid container justify='center' alignItems='center' className={classes.header}>
-          <h1>Welcome to -insert name-!</h1>
+        <Grid container justify="center" alignItems="center">
+            <h1>About us</h1>
         </Grid>
         <Grid item xs={6}>
           <Card variant="outlined" className={classes.card}>
-            <CardContent alignItems='center'>
-              <p>We are the #1 accessibility auditing platform! </p>
+            <CardContent>
+                <p>The aim of --insert name-- is to connect organizations that need and want their online services to be 
+                    accessible to those, who know what accessibility is. The ultimate goal is to include people with disabilities in 
+                    the process of designing and producing web services.</p>
+                <p></p>
             </CardContent>
           </Card>
-        </Grid>
-        <Grid container justify='center' alignItems='center'>
-        {user ? <p>You are logged In</p> : <p>You are logged out.</p>}
         </Grid>
       </Grid>
     </div>
   );
 }
 
-export default LandingPage;
+export default InfoPage;
