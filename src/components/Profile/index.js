@@ -114,17 +114,8 @@ function Profile() {
               <CardContent>
                 {user ? (
                   <Grid container spacing={2}>
-                    <Grid item sm={9}>
+                    <Grid item>
                       <h1>{t('user_info.your_info')}</h1>
-                    </Grid>
-                    <Grid item sm={3}>
-                      <Button
-                        variant="outlined"
-                        onClick={() => {
-                          i18n.changeLanguage(i18n.language === 'fi' ? 'en' : 'fi');
-                        }}>
-                        {t('user_info.change_lang')}
-                      </Button>
                     </Grid>
                     <Grid item xs={12}>
                       <img src={user.photoURL} alt={`${user.displayName} profile`} />
