@@ -77,13 +77,13 @@ function Topbar() {
           className={`${classes.link} ${classes.textDecoration}`}>
           <img src="/android-chrome-192x192.png" alt="Accessor-logo" width="48px" height="48px" />
         </Link>
-        <Link
+        {/* <Link
           component={RouterLink}
           to={'/info'}
           color="secondary"
           className={`${classes.link} ${classes.textDecoration}`}>
           INFO
-        </Link>
+        </Link>*/}
 
         <div className={classes.grow} />
 
