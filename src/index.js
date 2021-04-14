@@ -9,6 +9,7 @@ import LandingPage from './components/LandingPage';
 import AuditPosting from './components/AuditPosting';
 import Profile from './components/Profile';
 import Topbar from './components/Topbar';
+import InfoPage from './components/InfoPage'
 import reportWebVitals from './reportWebVitals';
 import theme from './theme';
 import { UserContext, UserProvider } from './UserContext';
@@ -30,6 +31,9 @@ ReactDOM.render(
           <CssBaseline />
           <Topbar />
           <Switch>
+            <Route path="/info">
+              <InfoPage />
+            </Route>
             <Route path="/report/:auditId">
               <AuditReport />
             </Route>
