@@ -25,7 +25,7 @@ export default function ProfileCard({ user, loggedUserIsAuditor }) {
   const history = useHistory();
 
   return (
-    <Grid item xs={3}>
+    <Grid item sm={6}>
       <Paper className={classes.paper}>
         <Grid container direction="column">
           <img className={classes.profileImg} src={user.photoURL} alt="auditor profile" />
