@@ -1,58 +1,55 @@
 {
   "audit_form": {
+    "add_page": "Add page +",
     "header": "Website (accessibility) evaluation form",
     "instructions_header": "Fill in the evaluation information below",
+    "no": "Ei",
+    "page": "Page",
     "page_url": "The address of the evaluated website",
     "question": "Question",
-    "submit": "Submit answers",
-    "add_page": "Add page +",
-    "page": "Page",
     "saved": "Saved!",
-    "yes": "Kyllä",
-    "no": "Ei"
-  },
-  "user_info": {
-    "header": "User information",
-    "change_lang": "🇫🇮",
-    "peripherals": "Peripherals",
-    "description": "Own description",
-    "company": "Company",
-    "hourly_rate": "Hourly rate",
-    "your_info": "Your information",
-    "save": "Save",
-    "role": "Role",
-    "auditor": "Evaluator",
-    "client": "Client"
-  },
-  "audit_report": {
-    "header": "Evaluation Report",
-    "subheader": "Report details",
-    "description": "This describes better what the evaluation consist of"
-  },
-  "auditor_listing": {
-    "posting_header": "Ongoing evaluations",
-    "header": "Available evaluators",
-    "contact": "Send offer",
-    "page_amount": "Page amount: "
+    "submit": "Submit answers",
+    "yes": "Kyllä"
   },
   "audit_posting": {
+    "add_page": "Add new page",
     "header": "Fill posting info",
-    "subheader": "General information",
-    "add_page": "Add new page"
+    "subheader": "General information"
+  },
+  "audit_report": {
+    "description": "This describes better what the evaluation consist of",
+    "header": "Evaluation Report",
+    "subheader": "Report details"
+  },
+  "auditor_listing": {
+    "contact": "Send offer",
+    "header": "Available evaluators",
+    "page_amount": "Page amount: ",
+    "posting_header": "Ongoing evaluations"
+  },
+  "landing_page": {
+    "description": "We make reliable webservice's accessibility evaluation possible. Our goal is to make the web accessible for all.",
+    "evaluator_button": "I want to review websites",
+    "header": "Welcome to Accessor",
+    "poster_button": "I need my website to be evaluated"
   },
   "top_bar": {
     "audit": "Evaluate",
     "example_report": "Example report",
-    "profile": "Profile",
-    "log_out": "Log out"
+    "log_out": "Log out",
+    "profile": "Profile"
   },
-  "info": {
-    "info-head": "About us",
-    "info-l1": "The aim of Accessor is to connect companies and organizations, who want their site to be accessible to those, who know what accessibility means.", 
-    "info-l2": "Our ultimate goal is to include people with disabilities in the process of designing and producing web services.",
-    "info-l3": "Let's make the web accessible for all!"
-  },
-  "landing": {
-    "header": "Welcome to Accessor!"
+  "user_info": {
+    "auditor": "Evaluator",
+    "change_lang": "Suomeksi",
+    "client": "Client",
+    "company": "Company",
+    "description": "Own description",
+    "header": "User information",
+    "hourly_rate": "Hourly rate",
+    "peripherals": "Peripherals",
+    "role": "Role",
+    "save": "Save",
+    "your_info": "Your information"
   }
 }
