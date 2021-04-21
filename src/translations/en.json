@@ -31,7 +31,7 @@
     "description": "We make reliable webservice's accessibility evaluation possible. Our goal is to make the web accessible for all.",
     "evaluator_button": "I want to review websites",
     "header": "Welcome to Accessor",
-    "poster_button": "I need my website to be evaluated"
+    "poster_button": "I need accessibility evaluation for my website"
   },
   "top_bar": {
     "audit": "Evaluate",
