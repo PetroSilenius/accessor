@@ -25,7 +25,8 @@ const useStyles = makeStyles((theme) => ({
   card: {
     padding: 25,
     paddingLeft: 50,
-    paddingRigth: 50,
+    paddingRight: 50,
+    minHeight: 148,
   },
 }));
 
@@ -71,16 +72,11 @@ function LandingPage() {
               <CardActionArea>
                 <CardContent alignItems="center">
                   <Grid container justify="center" alignItems="center">
-                    <Typography
-                      variant="h6"
-                      style={{
-                        paddingLeft: 100,
-                        paddingRight: 100,
-                        textAlign: "center",
-                      }}
-                    >
-                      {t("landing_page.poster_button")}
-                    </Typography>
+                    <Grid item>
+                      <Typography variant="h6" style={{ textAlign: "center" }}>
+                        {t("landing_page.poster_button")}
+                      </Typography>
+                    </Grid>
                   </Grid>
                 </CardContent>
               </CardActionArea>
@@ -91,16 +87,11 @@ function LandingPage() {
               <CardActionArea>
                 <CardContent alignItems="center">
                   <Grid container justify="center" alignItems="center">
-                    <Typography
-                      variant="h6"
-                      style={{
-                        paddingLeft: 100,
-                        paddingRight: 100,
-                        textAlign: "center",
-                      }}
-                    >
-                      {t("landing_page.evaluator_button")}
-                    </Typography>
+                    <Grid item>
+                      <Typography variant="h6" style={{ textAlign: "center" }}>
+                        {t("landing_page.evaluator_button")}
+                      </Typography>
+                    </Grid>
                   </Grid>
                 </CardContent>
               </CardActionArea>
