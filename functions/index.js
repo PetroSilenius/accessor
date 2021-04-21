@@ -57,16 +57,11 @@ exports.sendByeEmail = functions.auth.user().onDelete((user) => {
 exports.sendPostingAlert = functions.firestore
   .document("postings/{id}")
   .onCreate((snapshot, context) => {
-    functions.logger.log(
-      "sendPostingAlert: ",
-      snapshot._fieldsProto.auditorId.stringValue
-    );
     var db = admin.firestore();
     let query = db
       .collection("users")
       .doc(snapshot._fieldsProto.auditorId.stringValue);
     query.get().then((qsnapshot) => {
-      functions.logger.log("sendPostingAlert: ", qsnapshot);
       const email = qsnapshot._fieldsProto.email.stringValue;
       const displayName = qsnapshot._fieldsProto.displayName.stringValue;
       return sendNewPostingAlert(email, displayName);
@@ -86,7 +81,6 @@ async function sendWelcomeEmail(email, displayName) {
     displayName || ""
   }! Welcome to ${APP_NAME}. I hope you will enjoy our service.`;
   await mailTransport.sendMail(mailOptions);
-  functions.logger.log("New welcome email sent to:", email);
   return null;
 }
 
@@ -103,7 +97,6 @@ async function sendGoodbyeEmail(email, displayName) {
     displayName || ""
   }!, We confirm that we have deleted your ${APP_NAME} account.`;
   await mailTransport.sendMail(mailOptions);
-  functions.logger.log("Account deletion confirmation email sent to:", email);
   return null;
 }
 
@@ -119,6 +112,37 @@ async function sendNewPostingAlert(email, displayName) {
     displayName || ""
   }! You have received new evaluation offer. See it from https://lpbd-team-3.web.app/`;
   await mailTransport.sendMail(mailOptions);
-  functions.logger.log("New posting alert email sent to:", email);
   return null;
 }
+
+async function sendNewReviewCompleteEmail(email, displayName) {
+  const mailOptions = {
+    from: `${APP_NAME} <noreply@firebase.com>`,
+    to: email,
+  };
+
+  // The user subscribed to the newsletter.
+  mailOptions.subject = `Review is complete!`;
+  mailOptions.text = `Hey ${
+    displayName || ""
+  }! The evaluator has completed the review. See it from https://lpbd-team-3.web.app/`;
+  await mailTransport.sendMail(mailOptions);
+  return null;
+}
+
+exports.sendReviewCompleteEmail = functions.firestore
+  .document("audits/{id}")
+  .onCreate((snapshot, context) => {
+    var db = admin.firestore();
+    let query = db.collection("postings").doc(context.params.id);
+    query.get().then((qsnapshot) => {
+      query = db
+        .collection("users")
+        .doc(qsnapshot._fieldsProto.posterId.stringValue);
+      query.get().then((snapshot) => {
+        const email = snapshot._fieldsProto.email.stringValue;
+        const displayName = snapshot._fieldsProto.displayName.stringValue;
+        return sendNewReviewCompleteEmail(email, displayName);
+      });
+    });
+  });
