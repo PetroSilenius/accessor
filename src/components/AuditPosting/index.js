@@ -7,7 +7,9 @@ import AddIcon from '@material-ui/icons/Add';
 import { makeStyles } from '@material-ui/styles';
 import PageCard from './PageCard';
 import { firestore } from '../../firebase';
+import { useDocumentData, useCollectionData } from 'react-firebase-hooks/firestore';
 import { UserContext } from '../../UserContext';
+import ProfileCard from '../AuditorListing/ProfileCard';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -16,9 +18,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundAttachment: 'fixed',
     backgroundSize: 'cover',
     minHeight: 'calc(100vh - 64px)',
-  },
-  card: {
-    backgroundColor: theme.palette.secondary.lighter,
   },
 }));
 
@@ -31,6 +30,13 @@ function AuditPosting() {
   const [description, setDescription] = useState('');
   const [pages, setPages] = useState({ 0: {} });
   const [submitted, setSubmitted] = useState(false);
+
+  const auditorRef = firestore.doc(`users/${auditorId}`);
+  const [auditor] = useDocumentData(auditorRef);
+  const peripheralsRef = firestore.collection('peripherals');
+  const [peripherals] = useCollectionData(peripheralsRef);
+
+  console.log(auditor);
 
   const addPage = () => {
     const lastIndex = Object.keys(pages)[Object.keys(pages).length - 1];
@@ -75,10 +81,13 @@ function AuditPosting() {
     <div className={classes.container}>
       <Grid container justify="center" spacing={2}>
         <Grid item xs={10}>
-          <Card variant="outlined" className={classes.card}>
+          <Card variant="outlined">
             <CardContent>
               <h1>{t('audit_posting.header')}</h1>
-              {/* Add evaluator info here */}
+              <h2>{t('user_info.auditor')}</h2>
+              {auditor && (
+                <ProfileCard user={auditor} loggedUserIsAuditor={true} peripherals={peripherals} />
+              )}
               <h2>{t('audit_posting.subheader')}</h2>
               <Grid container spacing={2}>
                 <Grid item xs={12}>

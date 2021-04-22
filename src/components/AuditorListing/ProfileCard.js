@@ -30,26 +30,32 @@ export default function ProfileCard({ user, loggedUserIsAuditor, peripherals }) 
   return (
     <Grid item sm={6}>
       <Paper className={classes.paper}>
-        <Grid container direction="column">
-          <img className={classes.profileImg} src={user.photoURL} alt="auditor profile" />
-          <Typography variant="h6">{user.displayName}</Typography>
-          <Typography>{user.company}</Typography>
-          <Typography>{user.description}</Typography>
-          <Typography style={{ fontWeight: 'bold' }}>{user.hourlyRate}€/h</Typography>
-          <Grid item xs={12} className={classes.marginBottom}>
-            {peripherals?.map(
-              (peripheral) =>
-                user.peripherals?.[peripheral.id] && <Chip label={peripheral[i18n.language]}></Chip>
+        <Grid container direction="row">
+          <Grid item sm={6} md={4}>
+            <img className={classes.profileImg} src={user.photoURL} alt="auditor profile" />
+          </Grid>
+          <Grid item sm={6} md={8}>
+            <Typography variant="h6">{user.displayName}</Typography>
+            <Typography>{user.company}</Typography>
+            <Typography>{user.description}</Typography>
+            <Typography style={{ fontWeight: 'bold' }}>{user.hourlyRate}€/h</Typography>
+            <Grid item xs={12} className={classes.marginBottom}>
+              {peripherals?.map(
+                (peripheral) =>
+                  user.peripherals?.[peripheral.id] && (
+                    <Chip label={peripheral[i18n.language]}></Chip>
+                  )
+              )}
+            </Grid>
+            {!loggedUserIsAuditor && (
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={() => history.push(`/posting/${user.id}`)}>
+                {t('auditor_listing.contact')}
+              </Button>
             )}
           </Grid>
-          {!loggedUserIsAuditor && (
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={() => history.push(`/posting/${user.id}`)}>
-              {t('auditor_listing.contact')}
-            </Button>
-          )}
         </Grid>
       </Paper>
     </Grid>
