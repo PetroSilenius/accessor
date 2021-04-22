@@ -12,15 +12,15 @@
     "yes": "Kyllä"
   },
   "audit_posting": {
-    "header": "Fill job offer information",
-    "subheader": "Site address",
-    "subheader_notice": "This page won't be evaluated. If you want it to be evaluated add it as a subpage.",
     "add_page": "Add new subpage",
     "description": "Short description of the site, it's content",
-    "subpage_header": "The address of the evaluated subpage",
-    "subpage_desc": "Here you can describe the purpose and functions of the page as well as  things you'd like the evaluation to focus on.",
+    "header": "Fill job offer information",
     "input_description": "Description",
-    "input_subpage_url": "Subpage address"
+    "input_subpage_url": "Subpage address",
+    "subheader": "Site address",
+    "subheader_notice": "This page won't be evaluated. If you want it to be evaluated add it as a subpage.",
+    "subpage_desc": "Here you can describe the purpose and functions of the page as well as  things you'd like the evaluation to focus on.",
+    "subpage_header": "The address of the evaluated subpage"
   },
   "audit_report": {
     "description": "This describes better what the evaluation consist of",
@@ -29,7 +29,9 @@
   },
   "auditor_listing": {
     "contact": "Send offer",
-    "page_amount": "Page amount: "
+    "header": "Available evaluators",
+    "page_amount": "Page amount: ",
+    "posting_header": "Ongoing evaluations"
   },
   "info": {
     "info-head": "About us",
