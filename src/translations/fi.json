@@ -12,9 +12,15 @@
     "yes": "Kyllä"
   },
   "audit_posting": {
-    "add_page": "Lisää sivu",
-    "header": "Täytä postauksen tiedot",
-    "subheader": "Yleiset tiedot"
+    "add_page": "Lisää alasivu",
+    "description": "Lyhyt kuvaus sivuston sisällöstä, tarkoituksesta ja päätoiminnoista",
+    "header": "Täytä työtarjouksen tiedot",
+    "input_description": "Kuvaus",
+    "input_subpage_url": "Alasivun osoite",
+    "subheader": "Koko sivuston osoite",
+    "subheader_notice": "Tämä sivu ei lähde arvioitavaksi. Jos haluat että se arvioidaan, lisää se myös alasivuksi. ",
+    "subpage_desc": "Tässä voit kuvailla arvioitavan sivun tarkoitusta, toimintoja sekä asioita joihin toivoisit erityisesti arvioinnin keskittyvän",
+    "subpage_header": "Arvioitavan alasivun osoite"
   },
   "audit_report": {
     "description": "Tämä kuvailee tarkemmin mistä arviointi muodostuu",
@@ -27,6 +33,12 @@
     "page_amount": "Sivujen määrä: ",
     "posting_header": "Meneillään olevat arvioinnit"
   },
+  "info": {
+    "info-head": "Tietoa meistä",
+    "info-l1": "Accessor yhdistää saavutettavuutta tavoittelevat organisaatiot, ja ihmiset, joilla on omakohtaista kokemusta saavutettavuudesta.",
+    "info-l2": "Lopullisena tavoitteenamme on osallistaa saavutettavuutta tarvitsevat ihmisvet verkkopalveluiden suunnitteluvaiheeseen.",
+    "info-l3": "Tehdään yhdessä verkosta saavutettava kaikille!"
+  },
   "landing_page": {
     "description": "Mahdollistamme verkkopalveluiden saavutettavuuden luotettavan arvioinnin. Tavoitteenamme on tehdä verkosta saavutettava kaikille.",
     "evaluator_button": "Haluan tehdä arviointeja",
@@ -35,13 +47,13 @@
   },
   "top_bar": {
     "audit": "Arvioi",
-    "example_report": "Esimerkki raportti",
+    "example_report": "Esimerkkiraportti",
     "log_out": "Kirjaudu ulos",
     "profile": "Profiili"
   },
   "user_info": {
     "auditor": "Arvioija",
-    "change_lang": "In English",
+    "change_lang": "🇬🇧",
     "client": "Asiakas",
     "company": "Yritys",
     "description": "Oma kuvaus",
