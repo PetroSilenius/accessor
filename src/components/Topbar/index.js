@@ -1,16 +1,7 @@
 import { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import {
-  AppBar,
-  Toolbar,
-  IconButton,
-  Button,
-  Link,
-  Menu,
-  MenuItem,
-  Tooltip,
-} from '@material-ui/core';
-import { Link as RouterLink } from 'react-router-dom';
+import { AppBar, Toolbar, IconButton, Link, Menu, MenuItem, Tooltip } from '@material-ui/core';
+import { Link as RouterLink, useHistory } from 'react-router-dom';
 import { AccountCircle } from '@material-ui/icons';
 import { useTranslation } from 'react-i18next';
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -50,6 +41,7 @@ function Topbar() {
   const { t } = useTranslation();
   const [user] = useAuthState(auth);
   const [anchorEl, setAnchorEl] = useState(null);
+  const history = useHistory();
 
   const handleProfileClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -60,6 +52,7 @@ function Topbar() {
       .signOut()
       .then(() => {
         setAnchorEl(null);
+        history.push('/');
         console.log('logged out');
       })
       .catch((error) => {
