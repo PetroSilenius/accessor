@@ -1,7 +1,7 @@
-import { Button, Grid, makeStyles, Paper, Typography } from '@material-ui/core';
-import { Rating } from '@material-ui/lab';
+import { Button, Chip, Grid, makeStyles, Paper, Typography } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import i18n from '../../utils/i18n';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -17,9 +17,12 @@ const useStyles = makeStyles((theme) => ({
       float: 'right',
     },
   },
+  marginBottom: {
+    marginBottom: '20px',
+  },
 }));
 
-export default function ProfileCard({ user, loggedUserIsAuditor }) {
+export default function ProfileCard({ user, loggedUserIsAuditor, peripherals }) {
   const classes = useStyles();
   const { t } = useTranslation();
   const history = useHistory();
@@ -29,15 +32,16 @@ export default function ProfileCard({ user, loggedUserIsAuditor }) {
       <Paper className={classes.paper}>
         <Grid container direction="column">
           <img className={classes.profileImg} src={user.photoURL} alt="auditor profile" />
-          <Grid container justify="center">
-            <div style={{ width: 120 }}>
-              <Rating name="disabled" value={user.rating} precision={0.5} disabled />
-            </div>
-          </Grid>
           <Typography variant="h6">{user.displayName}</Typography>
           <Typography>{user.company}</Typography>
           <Typography>{user.description}</Typography>
           <Typography style={{ fontWeight: 'bold' }}>{user.hourlyRate}€/h</Typography>
+          <Grid item xs={12} className={classes.marginBottom}>
+            {peripherals?.map(
+              (peripheral) =>
+                user.peripherals?.[peripheral.id] && <Chip label={peripheral[i18n.language]}></Chip>
+            )}
+          </Grid>
           {!loggedUserIsAuditor && (
             <Button
               variant="contained"
