@@ -1,56 +1,37 @@
 {
   "audit_form": {
+    "add_page": "Lisää sivu +",
     "header": "Verkkosivun arviointilomake",
     "instructions_header": "Täytä arvioinnin tiedot alle",
+    "no": "Ei",
+    "page": "Sivu",
     "page_url": "Arvioitavan sivuston osoite",
     "question": "Kysymys",
-    "submit": "Lähetä vastaukset",
-    "add_page": "Lisää sivu +",
-    "page": "Sivu",
     "saved": "Tallennettu!",
-    "yes": "Kyllä",
-    "no": "Ei"
-  },
-  "user_info": {
-    "header": "Käyttäjätiedot",
-    "change_lang": "🇬🇧",
-    "peripherals": "Oheislaitteet",
-    "description": "Oma kuvaus",
-    "company": "Yritys",
-    "hourly_rate": "Tuntihinta",
-    "your_info": "Sinun tietosi",
-    "save": "Tallenna",
-    "role": "Rooli",
-    "auditor": "Arvioija",
-    "client": "Asiakas"
-  },
-  "audit_report": {
-    "header": "Arviointiraportti",
-    "subheader": "Raportin tiedot",
-    "description": "Tämä kuvailee tarkemmin mistä arviointi muodostuu"
-  },
-  "auditor_listing": {
-    "posting_header": "Meneillään olevat arvioinnit",
-    "header": "Saatavilla olevat arvioijat",
-    "contact": "Lähetä tarjous",
-    "page_amount": "Sivujen määrä: "
+    "submit": "Lähetä vastaukset",
+    "yes": "Kyllä"
   },
   "audit_posting": {
+    "add_page": "Lisää alasivu",
+    "description": "Lyhyt kuvaus sivuston sisällöstä, tarkoituksesta ja päätoiminnoista",
     "header": "Täytä työtarjouksen tiedot",
+    "input_description": "Kuvaus",
+    "input_subpage_url": "Alasivun osoite",
     "subheader": "Koko sivuston osoite",
     "subheader_notice": "Tämä sivu ei lähde arvioitavaksi. Jos haluat että se arvioidaan, lisää se myös alasivuksi. ",
-    "description": "Lyhyt kuvaus sivuston sisällöstä, tarkoituksesta ja päätoiminnoista",
-    "add_page": "Lisää alasivu",
-    "subpage_header": "Arvioitavan alasivun osoite",
     "subpage_desc": "Tässä voit kuvailla arvioitavan sivun tarkoitusta, toimintoja sekä asioita joihin toivoisit erityisesti arvioinnin keskittyvän",
-    "input_description": "Kuvaus",
-    "input_subpage_url": "Alasivun osoite"
+    "subpage_header": "Arvioitavan alasivun osoite"
   },
-  "top_bar": {
-    "audit": "Arvioi",
-    "example_report": "Esimerkkiraportti",
-    "profile": "Profiili",
-    "log_out": "Kirjaudu ulos"
+  "audit_report": {
+    "description": "Tämä kuvailee tarkemmin mistä arviointi muodostuu",
+    "header": "Arviointiraportti",
+    "subheader": "Raportin tiedot"
+  },
+  "auditor_listing": {
+    "contact": "Lähetä tarjous",
+    "header": "Saatavilla olevat arvioijat",
+    "page_amount": "Sivujen määrä: ",
+    "posting_header": "Meneillään olevat arvioinnit"
   },
   "info": {
     "info-head": "Tietoa meistä",
@@ -58,7 +39,29 @@
     "info-l2": "Lopullisena tavoitteenamme on osallistaa saavutettavuutta tarvitsevat ihmisvet verkkopalveluiden suunnitteluvaiheeseen.",
     "info-l3": "Tehdään yhdessä verkosta saavutettava kaikille!"
   },
-  "landing": {
-    "header": "Tervetuloa Accessoriin!"
+  "landing_page": {
+    "description": "Mahdollistamme verkkopalveluiden saavutettavuuden luotettavan arvioinnin. Tavoitteenamme on tehdä verkosta saavutettava kaikille.",
+    "evaluator_button": "Haluan tehdä arviointeja",
+    "header": "Tervetuloa Accessoriin",
+    "poster_button": "Haluan sivuni arvioitavaksi"
+  },
+  "top_bar": {
+    "audit": "Arvioi",
+    "example_report": "Esimerkkiraportti",
+    "log_out": "Kirjaudu ulos",
+    "profile": "Profiili"
+  },
+  "user_info": {
+    "auditor": "Arvioija",
+    "change_lang": "🇬🇧",
+    "client": "Asiakas",
+    "company": "Yritys",
+    "description": "Oma kuvaus",
+    "header": "Käyttäjätiedot",
+    "hourly_rate": "Tuntihinta",
+    "peripherals": "Oheislaitteet",
+    "role": "Rooli",
+    "save": "Tallenna",
+    "your_info": "Sinun tietosi"
   }
 }

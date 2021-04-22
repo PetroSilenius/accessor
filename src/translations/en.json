@@ -1,56 +1,37 @@
 {
   "audit_form": {
+    "add_page": "Add page +",
     "header": "Website (accessibility) evaluation form",
     "instructions_header": "Fill in the evaluation information below",
+    "no": "No",
+    "page": "Page",
     "page_url": "The address of the evaluated website",
     "question": "Question",
-    "submit": "Submit answers",
-    "add_page": "Add page +",
-    "page": "Page",
     "saved": "Saved!",
-    "yes": "Kyllä",
-    "no": "Ei"
-  },
-  "user_info": {
-    "header": "User information",
-    "change_lang": "🇫🇮",
-    "peripherals": "Peripherals",
-    "description": "Own description",
-    "company": "Company",
-    "hourly_rate": "Hourly rate",
-    "your_info": "Your information",
-    "save": "Save",
-    "role": "Role",
-    "auditor": "Evaluator",
-    "client": "Client"
-  },
-  "audit_report": {
-    "header": "Evaluation Report",
-    "subheader": "Report details",
-    "description": "This describes better what the evaluation consist of"
-  },
-  "auditor_listing": {
-    "posting_header": "Ongoing evaluations",
-    "header": "Available evaluators",
-    "contact": "Send offer",
-    "page_amount": "Page amount: "
+    "submit": "Submit answers",
+    "yes": "Yes"
   },
   "audit_posting": {
-    "header": "Fill job offer information",
-    "subheader": "Site address",
-    "subheader_notice": "This page won't be evaluated. If you want it to be evaluated add it as a subpage.",
     "add_page": "Add new subpage",
     "description": "Short description of the site, it's content",
-    "subpage_header": "The address of the evaluated subpage",
-    "subpage_desc": "Here you can describe the purpose and functions of the page as well as  things you'd like the evaluation to focus on.",
+    "header": "Fill job offer information",
     "input_description": "Description",
-    "input_subpage_url": "Subpage address"
+    "input_subpage_url": "Subpage address",
+    "subheader": "Site address",
+    "subheader_notice": "This page won't be evaluated. If you want it to be evaluated add it as a subpage.",
+    "subpage_desc": "Here you can describe the purpose and functions of the page as well as  things you'd like the evaluation to focus on.",
+    "subpage_header": "The address of the evaluated subpage"
   },
-  "top_bar": {
-    "audit": "Evaluate",
-    "example_report": "Example report",
-    "profile": "Profile",
-    "log_out": "Log out"
+  "audit_report": {
+    "description": "This describes better what the evaluation consist of",
+    "header": "Evaluation Report",
+    "subheader": "Report details"
+  },
+  "auditor_listing": {
+    "contact": "Send offer",
+    "header": "Available evaluators",
+    "page_amount": "Page amount: ",
+    "posting_header": "Ongoing evaluations"
   },
   "info": {
     "info-head": "About us",
@@ -58,7 +39,29 @@
     "info-l2": "Our ultimate goal is to include people with disabilities in the process of designing and producing web services.",
     "info-l3": "Let's make the web accessible for all!"
   },
-  "landing": {
-    "header": "Welcome to Accessor!"
+  "landing_page": {
+    "description": "We make reliable webservice's accessibility evaluation possible. Our goal is to make the web accessible for all.",
+    "evaluator_button": "I want to review websites",
+    "header": "Welcome to Accessor",
+    "poster_button": "I need accessibility evaluation for my website"
+  },
+  "top_bar": {
+    "audit": "Evaluate",
+    "example_report": "Example report",
+    "log_out": "Log out",
+    "profile": "Profile"
+  },
+  "user_info": {
+    "auditor": "Evaluator",
+    "change_lang": "🇫🇮",
+    "client": "Client",
+    "company": "Company",
+    "description": "Own description",
+    "header": "User information",
+    "hourly_rate": "Hourly rate",
+    "peripherals": "Peripherals",
+    "role": "Role",
+    "save": "Save",
+    "your_info": "Your information"
   }
 }
