@@ -109,10 +109,10 @@ function Profile() {
     <div className={classes.container}>
       <Container maxWidth="md">
         <Grid container justify="center" alignItems="center" className={classes.container}>
-          <Grid item xs={10}>
-            <Card variant="outlined" className={classes.card}>
-              <CardContent>
-                {user ? (
+          {user ? (
+            <Grid item xs={10}>
+              <Card variant="outlined" className={classes.card}>
+                <CardContent>
                   <Grid container spacing={2}>
                     <Grid item>
                       <h1>{t('user_info.your_info')}</h1>
@@ -144,28 +144,30 @@ function Profile() {
                         </RadioGroup>
                       </FormControl>
                     </Grid>
-                    <Grid item xs={12}>
-                      <FormControl component="fieldset">
-                        <FormLabel component="legend">{t('user_info.peripherals')}</FormLabel>
-                        <FormGroup row>
-                          {peripherals?.map((p) => (
-                            <FormControlLabel
-                              key={p.id}
-                              control={
-                                <Checkbox
-                                  name={p[i18n.language]}
-                                  id={`${p.id}`}
-                                  color="primary"
-                                  checked={selectedPeripherals?.[p.id]}
-                                  onChange={peripheralsOnChange}
-                                />
-                              }
-                              label={p[i18n.language]}
-                            />
-                          ))}
-                        </FormGroup>
-                      </FormControl>
-                    </Grid>
+                    {role === true && (
+                      <Grid item xs={12}>
+                        <FormControl component="fieldset">
+                          <FormLabel component="legend">{t('user_info.peripherals')}</FormLabel>
+                          <FormGroup row>
+                            {peripherals?.map((p) => (
+                              <FormControlLabel
+                                key={p.id}
+                                control={
+                                  <Checkbox
+                                    name={p[i18n.language]}
+                                    id={`${p.id}`}
+                                    color="primary"
+                                    checked={selectedPeripherals?.[p.id]}
+                                    onChange={peripheralsOnChange}
+                                  />
+                                }
+                                label={p[i18n.language]}
+                              />
+                            ))}
+                          </FormGroup>
+                        </FormControl>
+                      </Grid>
+                    )}
                     <Grid item xs={12}>
                       <TextField
                         label={t('user_info.description')}
@@ -204,12 +206,12 @@ function Profile() {
                       </Alert>
                     </Snackbar>
                   </Grid>
-                ) : (
-                  <></>
-                )}
-              </CardContent>
-            </Card>
-          </Grid>
+                </CardContent>
+              </Card>
+            </Grid>
+          ) : (
+            <></>
+          )}
         </Grid>
       </Container>
     </div>
