@@ -3,13 +3,13 @@
     "add_page": "Add page +",
     "header": "Website (accessibility) evaluation form",
     "instructions_header": "Fill in the evaluation information below",
-    "no": "Ei",
+    "no": "No",
     "page": "Page",
     "page_url": "The address of the evaluated website",
     "question": "Question",
     "saved": "Saved!",
     "submit": "Submit answers",
-    "yes": "Kyllä"
+    "yes": "Yes"
   },
   "audit_posting": {
     "add_page": "Add new subpage",
