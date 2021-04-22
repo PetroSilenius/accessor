@@ -12,15 +12,15 @@
     "yes": "Kyllä"
   },
   "audit_posting": {
-    "add_page": "Lisää alasivu",
-    "description": "Lyhyt kuvaus sivuston sisällöstä, tarkoituksesta ja päätoiminnoista",
     "header": "Täytä työtarjouksen tiedot",
-    "input_description": "Kuvaus",
-    "input_subpage_url": "Alasivun osoite",
     "subheader": "Koko sivuston osoite",
     "subheader_notice": "Tämä sivu ei lähde arvioitavaksi. Jos haluat että se arvioidaan, lisää se myös alasivuksi. ",
+    "description": "Lyhyt kuvaus sivuston sisällöstä, tarkoituksesta ja päätoiminnoista",
+    "add_page": "Lisää alasivu",
+    "subpage_header": "Arvioitavan alasivun osoite",
     "subpage_desc": "Tässä voit kuvailla arvioitavan sivun tarkoitusta, toimintoja sekä asioita joihin toivoisit erityisesti arvioinnin keskittyvän",
-    "subpage_header": "Arvioitavan alasivun osoite"
+    "input_description": "Kuvaus",
+    "input_subpage_url": "Alasivun osoite"
   },
   "audit_report": {
     "description": "Tämä kuvailee tarkemmin mistä arviointi muodostuu",
@@ -29,9 +29,7 @@
   },
   "auditor_listing": {
     "contact": "Lähetä tarjous",
-    "header": "Saatavilla olevat arvioijat",
-    "page_amount": "Sivujen määrä: ",
-    "posting_header": "Meneillään olevat arvioinnit"
+    "page_amount": "Sivujen määrä: "
   },
   "info": {
     "info-head": "Tietoa meistä",

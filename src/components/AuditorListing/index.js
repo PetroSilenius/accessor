@@ -45,6 +45,8 @@ export default function AuditorListing() {
   const [users] = useCollectionData(usersRef.where('auditor', '==', true), {
     idField: 'id',
   });
+  const peripheralsRef = firestore.collection('peripherals');
+  const [peripherals] = useCollectionData(peripheralsRef);
 
   const userIsAuditor = users?.some((u) => u.id === user.uid);
 
@@ -62,7 +64,12 @@ export default function AuditorListing() {
         <Grid container spacing={3} justify="space-evenly">
           {users ? (
             users.map((u) => (
-              <ProfileCard user={u} loggedUserIsAuditor={userIsAuditor} key={u.id} />
+              <ProfileCard
+                user={u}
+                loggedUserIsAuditor={userIsAuditor}
+                peripherals={peripherals}
+                key={u.id}
+              />
             ))
           ) : (
             <CircularProgress />
