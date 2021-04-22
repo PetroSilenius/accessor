@@ -12,9 +12,15 @@
     "yes": "Kyllä"
   },
   "audit_posting": {
-    "add_page": "Add new page",
-    "header": "Fill posting info",
-    "subheader": "General information"
+    "add_page": "Add new subpage",
+    "description": "Short description of the site, it's content",
+    "header": "Fill job offer information",
+    "input_description": "Description",
+    "input_subpage_url": "Subpage address",
+    "subheader": "Site address",
+    "subheader_notice": "This page won't be evaluated. If you want it to be evaluated add it as a subpage.",
+    "subpage_desc": "Here you can describe the purpose and functions of the page as well as  things you'd like the evaluation to focus on.",
+    "subpage_header": "The address of the evaluated subpage"
   },
   "audit_report": {
     "description": "This describes better what the evaluation consist of",
@@ -26,6 +32,12 @@
     "header": "Available evaluators",
     "page_amount": "Page amount: ",
     "posting_header": "Ongoing evaluations"
+  },
+  "info": {
+    "info-head": "About us",
+    "info-l1": "The aim of Accessor is to connect companies and organizations, who want their site to be accessible to those, who know what accessibility means.",
+    "info-l2": "Our ultimate goal is to include people with disabilities in the process of designing and producing web services.",
+    "info-l3": "Let's make the web accessible for all!"
   },
   "landing_page": {
     "description": "We make reliable webservice's accessibility evaluation possible. Our goal is to make the web accessible for all.",
@@ -41,7 +53,7 @@
   },
   "user_info": {
     "auditor": "Evaluator",
-    "change_lang": "Suomeksi",
+    "change_lang": "🇫🇮",
     "client": "Client",
     "company": "Company",
     "description": "Own description",
