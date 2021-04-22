@@ -7,6 +7,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import firebase from "firebase/app";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useTranslation } from "react-i18next";
 import { auth } from "../../firebase";
@@ -34,6 +35,18 @@ function LandingPage() {
   const classes = useStyles();
   const [user] = useAuthState(auth);
   const { t } = useTranslation();
+
+  const signInWithGoogle = () => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    auth
+      .signInWithPopup(provider)
+      .then(() => {
+        console.log("logged in");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <div className={classes.container}>
@@ -69,7 +82,7 @@ function LandingPage() {
           </Grid>
           <Grid item xs={6}>
             <Card variant="outlined" className={classes.card}>
-              <CardActionArea>
+              <CardActionArea onClick={signInWithGoogle}>
                 <CardContent alignItems="center">
                   <Grid container justify="center" alignItems="center">
                     <Grid item>
@@ -84,7 +97,7 @@ function LandingPage() {
           </Grid>
           <Grid item xs={6}>
             <Card variant="outlined" className={classes.card}>
-              <CardActionArea>
+              <CardActionArea onClick={signInWithGoogle}>
                 <CardContent alignItems="center">
                   <Grid container justify="center" alignItems="center">
                     <Grid item>
