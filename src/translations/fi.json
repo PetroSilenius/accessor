@@ -36,9 +36,15 @@
     "page_amount": "Sivujen määrä: "
   },
   "audit_posting": {
-    "header": "Täytä postauksen tiedot",
-    "subheader": "Yleiset tiedot",
-    "add_page": "Lisää sivu"
+    "header": "Täytä työtarjouksen tiedot",
+    "subheader": "Koko sivuston osoite",
+    "subheader_notice": "Tämä sivu ei lähde arvioitavaksi. Jos haluat että se arvioidaan, lisää se myös alasivuksi. ",
+    "description": "Lyhyt kuvaus sivuston sisällöstä, tarkoituksesta ja päätoiminnoista",
+    "add_page": "Lisää alasivu",
+    "subpage_header": "Arvioitavan alasivun osoite",
+    "subpage_desc": "Tässä voit kuvailla arvioitavan sivun tarkoitusta, toimintoja sekä asioita joihin toivoisit erityisesti arvioinnin keskittyvän",
+    "input_description": "Kuvaus",
+    "input_subpage_url": "Alasivun osoite"
   },
   "top_bar": {
     "audit": "Arvioi",
