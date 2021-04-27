@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Card, CardContent, Grid, Snackbar, TextField, Button } from '@material-ui/core';
@@ -35,8 +35,7 @@ function AuditPosting() {
   const [auditor] = useDocumentData(auditorRef);
   const peripheralsRef = firestore.collection('peripherals');
   const [peripherals] = useCollectionData(peripheralsRef);
-
-  console.log(auditor);
+  const postingRef = useRef(firestore.collection(`postings`).doc());
 
   const addPage = () => {
     const lastIndex = Object.keys(pages)[Object.keys(pages).length - 1];
@@ -63,8 +62,7 @@ function AuditPosting() {
   };
 
   const onSubmit = () => {
-    const postingRef = firestore.collection(`postings`).doc();
-    postingRef
+    postingRef.current
       .set({
         auditorId: auditorId,
         posterId: user.uid,
@@ -124,8 +122,16 @@ function AuditPosting() {
           </Card>
         </Grid>
         {pages &&
-          Object.values(pages).map((index) => {
-            return <PageCard index={index} key={index} onChange={handleInputChange} />;
+          Object.values(pages).map((page, index) => {
+            return (
+              <PageCard
+                pageUrl={page[0]}
+                description={page[1]}
+                index={index}
+                key={index}
+                onChange={handleInputChange}
+              />
+            );
           })}
         <Grid item xs={10}>
           <Grid container justify="space-between">
