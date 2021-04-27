@@ -43,7 +43,7 @@ export default function ProfileCard({ user, loggedUserIsAuditor, peripherals }) 
               {peripherals?.map(
                 (peripheral) =>
                   user.peripherals?.[peripheral.id] && (
-                    <Chip label={peripheral[i18n.language]}></Chip>
+                    <Chip label={peripheral[i18n.language]} key={peripheral.id}></Chip>
                   )
               )}
             </Grid>
