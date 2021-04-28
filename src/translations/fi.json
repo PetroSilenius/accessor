@@ -23,8 +23,10 @@
     "subpage_header": "Arvioitavan alasivun osoite"
   },
   "audit_report": {
+    "contact": "Ota yhteyttä arvioijaan",
     "description": "Tämä kuvailee tarkemmin mistä arviointi muodostuu",
     "header": "Arviointiraportti",
+    "need_help": "Tarvitsetko apua tämän kanssa?",
     "subheader": "Raportin tiedot"
   },
   "auditor_listing": {
