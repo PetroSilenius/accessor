@@ -23,8 +23,10 @@
     "subpage_header": "The address of the evaluated subpage"
   },
   "audit_report": {
+    "contact": "Contact auditor",
     "description": "This describes better what the evaluation consist of",
     "header": "Evaluation Report",
+    "need_help": "Need help with this?",
     "subheader": "Report details"
   },
   "auditor_listing": {
