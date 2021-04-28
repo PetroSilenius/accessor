@@ -1,10 +1,5 @@
+import { Card, CardContent, makeStyles, Typography } from "@material-ui/core";
 import React from "react";
-import {
-  Card,
-  CardContent,
-  makeStyles,
-  TextField,
-} from "@material-ui/core";
 import { useTranslation } from "react-i18next";
 import Questions from "./Questions";
 
@@ -26,10 +21,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
-
-
-export default function Page({ id, checkedPeripherals, questions, setPages, pages, posting }) {
+export default function Page({
+  id,
+  checkedPeripherals,
+  questions,
+  setPages,
+  pages,
+  posting,
+}) {
   const { t } = useTranslation();
   const classes = useStyles();
 
@@ -44,17 +43,9 @@ export default function Page({ id, checkedPeripherals, questions, setPages, page
     <React.Fragment>
       <Card className={classes.card}>
         <CardContent>
-          <h2>{t('audit_form.instructions_header')}</h2>
-          <h3>{t('audit_form.page_url')}</h3>
-          <TextField
-            required
-            id="pageUrl"
-            name="pageUrl"
-            label={t('audit_form.page_url')}
-            fullWidth
-            defaultValue={pages[id].pageUrl}
-            onChange={handleChange}
-          />
+          <h2>{t("audit_form.instructions_header")}</h2>
+          <h3>{t("audit_form.page_url")}</h3>
+          <Typography>{pages[id].pageUrl}</Typography>
           <p>{posting?.pages[id]?.description}</p>
         </CardContent>
       </Card>
@@ -68,4 +59,3 @@ export default function Page({ id, checkedPeripherals, questions, setPages, page
     </React.Fragment>
   );
 }
-
