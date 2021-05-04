@@ -1,65 +1,58 @@
-# Getting Started with Create React App
+# Accessor - Accessibility evaluation platform 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+>Our goal is to make the web accessible for all.
 
-## Available Scripts
+Accessor is a platform for connecting individual accessibility evaluators with companies or public organisations that want to ensure their websites and applications are truely accessible.
 
-In the project directory, you can run:
+The evaluation process is supported and guided through an assistive evaluation form that is based on the [WCAG criteria](https://www.w3.org/WAI/standards-guidelines/wcag/).
 
-### `yarn start`
+The platform was built as a part of the [Lean Platform Business Design course](https://opas.peppi.utu.fi/en/course/DTEK2037/8671) and the focus was on the business opportunity.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Platform functionalities
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The platform has Google SSO login
 
-### `yarn build`
+![Evaluation form with five separate questions. Four open text ones and one radio button, first question is "Did you understand the purpose of non-text elements? Describe your experience. Did you encounter any difficulties?"](https://i.imgur.com/P49Gdn2.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Built With
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* [React](https://reactjs.org/)
+* [Firebase](https://firebase.google.com/)
+* [Material-UI](https://material-ui.com/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+## Getting started
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Prerequisites
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Set up your Firebase Blaze tier project which is used to authentication, firestore database, hosting and email functions.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Add a web app SDK to it and copy the CDN configurations to `src/firebase.js`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Instructions on Firebase configurations can be found in [Firebases documentation](https://firebase.google.com/docs?authuser=0).
 
-## Learn More
+### Installation
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Clone the repo
+   ```sh
+   git clone https://github.com/PetroSilenius/lpbd-team3.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+3. Start up the development server
+   ```sh
+   npm run start
+   ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Authors
 
-### Code Splitting
+[Petro Silenius](https://github.com/PetroSilenius)  
+[Kalle Koskinen](https://github.com/t0nninseteli)  
+[Milja Lempinen](https://github.com/mmiljas)  
+[Samuli Könönen](https://github.com/blumfeld)  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
