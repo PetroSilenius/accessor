@@ -32,9 +32,21 @@ Once the evaluation is finished the client will receive an email and will be abl
 
 ### Prerequisites
 
-Set up your Firebase Blaze tier project which is used to authentication, firestore database, hosting and email functions.
+1. Set up your Firebase Blaze tier project
 
-Add a web app SDK to it and copy the CDN configurations to `src/firebase.js`
+2. Add a web app SDK to it and copy the CDN configurations to `src/firebase.js`
+
+3. Install Firebase CLI
+   ```sh
+   npm install -g firebase-tools
+   ```
+
+4. Initialize the project in the CLI
+   ```sh
+   firebase init
+   ```
+
+5. Finish the project configuration by following the CLI instructions. Enable authentication, firestore, hosting and functions (for emails) to be used in the project.
 
 Instructions on Firebase configurations can be found in [Firebases documentation](https://firebase.google.com/docs?authuser=0).
 
